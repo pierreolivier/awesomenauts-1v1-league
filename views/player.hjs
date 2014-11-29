@@ -12,6 +12,7 @@
         <p>Welcome to !</p>
         <div id="player">
           <div class="title">{{name}}</div>
+          {{group}}
           <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steam_profile}}">steam profile ></a></div>
           <div id="stats">
             <div class="title">Stats</div>

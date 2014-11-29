@@ -46,9 +46,15 @@ router.get('/', function(req, res) {
 });
 
 router.get('/player', function(req, res) {
-  res.render('player', {
+  api.player(req.query.id, function(player) {
+    //console.log(player);
+    res.render('player', player);
+  });
+
+  /*res.render('player', {
     title: 'Express',
     name: 'p.o',
+    group: 'Group 1',
     steam_profile: 'https://steamcommunity.com/id/pierr/',
     game_played: 10,
     wins: 10,
@@ -71,7 +77,7 @@ router.get('/player', function(req, res) {
         {rank: 1, nauts: 'Lonestar vs Frog', score: '10 - 5'}, {rank: 2, nauts: 'Lonestar vs Frog', score: '10 - 5'}, {rank: 3, nauts: 'Lonestar vs Frog', score: '10 - 5'}
       ]}
     ]
-  });
+  });*/
 });
 
 module.exports = router;
