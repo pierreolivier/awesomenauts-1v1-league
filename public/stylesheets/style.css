@@ -19,6 +19,10 @@ a {
   color: #00B7FF;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 #page {
   background-color: #000000;
   background-image: url("../images/background.jpg");
@@ -85,18 +89,94 @@ a {
   text-align: left;
 }
 
+#groups .group .table .line .name a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 #player .title {
   margin-top: 50px;
   padding-left: 20px;
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 46px;
+}
+
+#player {
+  position: relative;
+}
+
+#player .steam {
+  position: absolute;
+  top: 30px;
+  right: 10px;
 }
 
 #player div .title {
   margin-top: 20px;
   padding-left: 20px;
   margin-bottom: 20px;
-  font-size: 25px;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+#player #stats div .title {
+  font-size: 22px;
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+#player #stats div img {
+  border: 1px solid #000000;
+}
+
+#player #stats #general .line {
+  position: relative;
+}
+
+#player #stats #general .line .value {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+#player #stats #highlights {
+  display: inline-block;
+  margin-left: 30px;
+  width: 30%;
+  vertical-align: top;
+}
+
+#player #stats #highlights .line {
+  position: relative;
+}
+
+#player #stats #highlights .line .info {
+  position: absolute;
+  top: 12px;
+  left: 70px;
+}
+
+#player #stats #accomplishments {
+  display: inline-block;
+  width: 32%;
+  vertical-align: top;
+}
+
+#player #stats #accomplishments .line {
+  position: relative;
+}
+
+#player #stats #accomplishments .line .info {
+  position: absolute;
+  top: 12px;
+  left: 70px;
+}
+
+#player #stats #general {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
 }
 
 #player #matches .match {
@@ -129,8 +209,14 @@ a {
   height: 20px;
 }
 
+#player #matches .match .rounds .round .rank {
+  position: absolute;
+  font-weight: bold;
+}
+
 #player #matches .match .rounds .round .nauts {
   position: absolute;
+  left: 30px;
 }
 
 #player #matches .match .rounds .round .score {

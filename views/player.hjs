@@ -9,25 +9,32 @@
       <div id="content" align="left">
         <br />
         <h1>DaveW's 1v1 League!</h1>
-        <p>Welcome to {{ title }}</p>
+        <p>Welcome to !</p>
         <div id="player">
-          <div class="title"><<< {{name}}</div>
+          <div class="title">{{name}}</div>
+          <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steam_profile}}">steam profile ></a></div>
           <div id="stats">
             <div class="title">Stats</div>
-            Game played<br />
-            Wins<br />
-            Losses<br />
-            Points<br />
-            points eanred with wins/losses<br /><br />
-
-            Highlights<br />
-            > naut1: rounds played, win<br />
-            > naut2: rounds played, win<br />
-            > naut3: rounds played, win<br /><br />
-
-            Accomplishments<br />
-            > biggest wining spree<br />
-            > best match<br />
+            <div id="general">
+              <div class="title">General</div>
+              <div class="line">Game played<div class="value">{{game_played}}</div></div>
+              <div class="line">Wins<div class="value">{{wins}}</div></div>
+              <div class="line">Losses<div class="value">{{losses}}</div></div>
+              <div class="line">Points<div class="value">{{points}}</div></div>
+              <div class="line">with wins<div class="value">{{with_wins}}</div></div>
+              <div class="line">with losses<div class="value">{{with_losses}}</div></div>
+            </div>
+            <div id="highlights">
+              <div class="title">Highlights</div>
+              {{#highlights}}
+                <div class="line"><img src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+              {{/highlights}}
+            </div>
+            <div id="accomplishments">
+              <div class="title">Accomplishments</div>
+              <div class="line"><img src="{{winning_spree_image}}" /><div class="info"><b>Biggest Wining Spree</b><br />{{winning_spree_wins}} consecutive wins</div></div>
+              <div class="line"><img src="{{best_image}}" /><div class="info"><b>Best match</b><br />{{best_score}}</div></div>
+            </div>
           </div>
           <div id="matches">
             <div class="title">Matches</div>
@@ -38,6 +45,7 @@
               <div class="rounds">
                 {{#rounds}}
                 <div class="round">
+                  <div class="rank">#{{rank}}</div>
                   <div class="nauts">
                     {{nauts}}
                   </div>
@@ -48,7 +56,7 @@
                 {{/rounds}}
               </div>
               <div class="winner">
-                {{winner}} won this match !
+                <b>{{winner}}</b> won this match !
               </div>
             </div>
             {{/matches}}

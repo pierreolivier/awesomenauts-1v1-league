@@ -9,14 +9,14 @@
       <div id="content" align="left">
         <br />
         <h1>DaveW's 1v1 League!</h1>
-        <p>Welcome to {{ title }}</p>
+        <p>Welcome to !</p>
         <div id="groups">
           <div class="title">Groups</div>
           <div class="list">
 
             {{#groups}}
             <div class="group">
-              <div class="name">{{name}}</div>
+              <div class="name"><b>{{name}}</b></div>
               <table border="0" class="table">
                 <tr class="header">
                   <td width="10%">Rank</td>
@@ -28,7 +28,7 @@
                 {{#players}}
                 <tr class="line">
                   <td class="rank">{{rank}}</td>
-                  <td class="name">{{name}}</td>
+                  <td class="name"><a href="/player">{{name}}</a></td>
                   <td>{{wins}}</td>
                   <td>{{losses}}</td>
                   <td>{{points}}</td>
