@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+var api = require('../lib/api');
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {
+  api.groups(function (groups) {
+    res.render('index', {
+      title: 'Express',
+      groups: groups
+    });
+  });
+
+  /*res.render('index', {
     title: 'Express',
     groups: [
       { name: 'Group 1',
@@ -33,7 +42,7 @@ router.get('/', function(req, res) {
         ]
       }
     ]
-  });
+  });*/
 });
 
 router.get('/player', function(req, res) {

@@ -21,8 +21,8 @@
               <div class="line">Wins<div class="value">{{wins}}</div></div>
               <div class="line">Losses<div class="value">{{losses}}</div></div>
               <div class="line">Points<div class="value">{{points}}</div></div>
-              <div class="line">with wins<div class="value">{{with_wins}}</div></div>
-              <div class="line">with losses<div class="value">{{with_losses}}</div></div>
+              <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
+              <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
             </div>
             <div id="highlights">
               <div class="title">Highlights</div>
