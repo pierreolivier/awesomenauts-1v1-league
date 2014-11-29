@@ -1,0 +1,86 @@
+@font-face {
+  font-family: nauts-font;
+  src: url(nauts-font-2.ttf);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font: 18px nauts-font, "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#page {
+  background-color: #000000;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  letter-spacing: 2px;
+}
+
+#content {
+  width: 1000px;
+  height: 100%;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  background-color: rgba(9, 9, 10, 0.64);
+}
+
+#groups {
+
+}
+
+#groups .title {
+  margin-top: 50px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+#groups .list {
+
+}
+
+#groups .group {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 40px;
+}
+
+#groups .group .name {
+  margin-bottom: 5px;
+}
+
+#groups .group .table {
+  width: 475px;
+  border: 0;
+}
+
+#groups .group .table .header {
+  color: rgb(122, 211, 238);
+}
+
+#groups .group .table .line {
+  text-align: center;
+}
+
+#groups .group .table .line .rank {
+  text-align: left;
+}
+
+#groups .group .table .line .name {
+  text-align: left;
+}

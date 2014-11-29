@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="page" align="center">
+      <div id="content" align="left">
+        <br />
+        <h1>DaveW's 1v1 League!</h1>
+        <p>Welcome to {{ title }}</p>
+        <div id="groups">
+          <div class="title">Groups</div>
+          <div class="list">
+
+            <div class="group">
+              <div class="name">Group 1</div>
+              <table border="0" class="table">
+                <tr class="header">
+                  <td width="10%">Rank</td>
+                  <td>Name</td>
+                  <td width="10%">Wins</td>
+                  <td width="10%">Losses</td>
+                  <td width="10%">Points</td>
+                </tr>
+                <tr class="line">
+                  <td class="rank">1</td>
+                  <td class="name">p.o</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>19</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="group">
+              <div class="name">Group 1</div>
+              <table border="0" class="table">
+                <tr class="header">
+                  <td width="10%">Rank</td>
+                  <td>Name</td>
+                  <td width="10%">Wins</td>
+                  <td width="10%">Losses</td>
+                  <td width="10%">Points</td>
+                </tr>
+                <tr class="line">
+                  <td class="rank">1</td>
+                  <td class="name">p.o</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>19</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="group">
+              <div class="name">Group 1</div>
+              <table border="0" class="table">
+                <tr class="header">
+                  <td width="10%">Rank</td>
+                  <td>Name</td>
+                  <td width="10%">Wins</td>
+                  <td width="10%">Losses</td>
+                  <td width="10%">Points</td>
+                </tr>
+                <tr class="line">
+                  <td class="rank">1</td>
+                  <td class="name">p.o</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>19</td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
