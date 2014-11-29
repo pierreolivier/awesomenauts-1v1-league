@@ -25,7 +25,7 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100%;
+  min-height: 100%;
   letter-spacing: 2px;
 }
 
@@ -83,4 +83,63 @@ a {
 
 #groups .group .table .line .name {
   text-align: left;
+}
+
+#player .title {
+  margin-top: 50px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+#player div .title {
+  margin-top: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+#player #matches .match {
+  position: relative;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+#player #matches .match .name {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#player #matches .match .date {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#player #matches .match .rounds {
+  position: absolute;
+  left: 20px;
+  top: 25px;
+}
+
+#player #matches .match .rounds .round {
+  width: 900px;
+  position: relative;
+  height: 20px;
+}
+
+#player #matches .match .rounds .round .nauts {
+  position: absolute;
+}
+
+#player #matches .match .rounds .round .score {
+  position: absolute;
+  right: 0;
+}
+
+#player #matches .match .winner {
+  position: absolute;
+  bottom: 0;
+  left: 100px;
 }

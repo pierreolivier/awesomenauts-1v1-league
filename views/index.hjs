@@ -14,8 +14,9 @@
           <div class="title">Groups</div>
           <div class="list">
 
+            {{#groups}}
             <div class="group">
-              <div class="name">Group 1</div>
+              <div class="name">{{name}}</div>
               <table border="0" class="table">
                 <tr class="header">
                   <td width="10%">Rank</td>
@@ -24,55 +25,18 @@
                   <td width="10%">Losses</td>
                   <td width="10%">Points</td>
                 </tr>
+                {{#players}}
                 <tr class="line">
-                  <td class="rank">1</td>
-                  <td class="name">p.o</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>19</td>
+                  <td class="rank">{{rank}}</td>
+                  <td class="name">{{name}}</td>
+                  <td>{{wins}}</td>
+                  <td>{{losses}}</td>
+                  <td>{{points}}</td>
                 </tr>
+                {{/players}}
               </table>
             </div>
-
-            <div class="group">
-              <div class="name">Group 1</div>
-              <table border="0" class="table">
-                <tr class="header">
-                  <td width="10%">Rank</td>
-                  <td>Name</td>
-                  <td width="10%">Wins</td>
-                  <td width="10%">Losses</td>
-                  <td width="10%">Points</td>
-                </tr>
-                <tr class="line">
-                  <td class="rank">1</td>
-                  <td class="name">p.o</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>19</td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="group">
-              <div class="name">Group 1</div>
-              <table border="0" class="table">
-                <tr class="header">
-                  <td width="10%">Rank</td>
-                  <td>Name</td>
-                  <td width="10%">Wins</td>
-                  <td width="10%">Losses</td>
-                  <td width="10%">Points</td>
-                </tr>
-                <tr class="line">
-                  <td class="rank">1</td>
-                  <td class="name">p.o</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>19</td>
-                </tr>
-              </table>
-            </div>
+            {{/groups}}
 
           </div>
         </div>

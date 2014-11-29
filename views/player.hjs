@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="page" align="center">
+      <div id="content" align="left">
+        <br />
+        <h1>DaveW's 1v1 League!</h1>
+        <p>Welcome to {{ title }}</p>
+        <div id="player">
+          <div class="title"><<< {{name}}</div>
+          <div id="stats">
+            <div class="title">Stats</div>
+            Game played<br />
+            Wins<br />
+            Losses<br />
+            Points<br />
+            points eanred with wins/losses<br /><br />
+
+            Highlights<br />
+            > naut1: rounds played, win<br />
+            > naut2: rounds played, win<br />
+            > naut3: rounds played, win<br /><br />
+
+            Accomplishments<br />
+            > biggest wining spree<br />
+            > best match<br />
+          </div>
+          <div id="matches">
+            <div class="title">Matches</div>
+            {{#matches}}
+            <div class="match">
+              <div class="name">{{versus}}</div>
+              <div class="date">{{date}}</div>
+              <div class="rounds">
+                {{#rounds}}
+                <div class="round">
+                  <div class="nauts">
+                    {{nauts}}
+                  </div>
+                  <div class="score">
+                    {{score}}
+                  </div>
+                </div>
+                {{/rounds}}
+              </div>
+              <div class="winner">
+                {{winner}} won this match !
+              </div>
+            </div>
+            {{/matches}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
