@@ -13,7 +13,6 @@
         <div id="groups">
           <div class="title">Groups</div>
           <div class="list">
-
             {{#groups}}
             <div class="group">
               <div class="name"><b>{{name}}</b></div>

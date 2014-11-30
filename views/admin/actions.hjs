@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="page" align="center">
+      <div id="content" align="left">
+        <br />
+        <h1>DaveW's 1v1 League!</h1>
+        <p>Welcome to !</p>
+        <div id="groups">
+          <div class="title">Admin</div>
+          actions<br /><br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

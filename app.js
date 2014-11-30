@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,7 @@ var configuration = require('./configuration');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var admin = require('./routes/admin');
 
 var manager = require('./lib/manager');
 
@@ -33,8 +35,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: configuration.server.sessionSecret,
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use('/', routes);
+app.use('/a/', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

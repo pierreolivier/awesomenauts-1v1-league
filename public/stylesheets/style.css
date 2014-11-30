@@ -242,3 +242,7 @@ a:link {
 #player #matches .match .winner a {
   color: #ffffff;
 }
+
+input {
+  font-family: nauts-font, "Lucida Grande", Helvetica, Arial, sans-serif;
+}
