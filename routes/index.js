@@ -18,4 +18,11 @@ router.get('/player', function(req, res) {
   });
 });
 
+router.get('/group', function(req, res) {
+  api.group(req.query.id, function() {
+    //res.render('player', {});
+  });
+  res.end();
+});
+
 module.exports = router;
