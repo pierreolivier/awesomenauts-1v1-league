@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <div id="page" align="center">
-      <div id="content" align="left">
-        <br />
-        <h1>DaveW's 1v1 League!</h1>
-        <p>Welcome to !</p>
-        <div id="groups">
-          <div class="title">Admin</div>
-          actions<br /><br />
+<head>
+  <title>{{ title }}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="/javascripts/jquery-2.1.1.js"></script>
+  <script src="/javascripts/manager.js"></script>
+</head>
+<body>
+<div id="page" align="center">
+  <div id="content" align="left">
+    <br />
+    <h1>DaveW's 1v1 League!</h1>
+    <p>Welcome to !</p>
+    <div id="player">
+      <div class="title">Admin</div>
+      <div class="block">
+        <div class="title">Groups
+          <div class="admin_icons">
+            <a href="javascript:promptEdit('/a/group/add', 'new group name ?', {}, 'name')"><img width="20" src="/images/add.png" /></a>
+          </div>
+        </div>
+        <div class="admin_list">
+          {{#groups}}
+          <div class="admin_item">
+            <div class="admin_item_value">{{name}}</div>
+            <div class="admin_item_commands"><a href="javascript:promptEdit('/a/group/edit', 'new name ?', {id: '{{id}}'}, 'name')"><img width="20" src="/images/edit.png" /></a> <a href="javascript:promptDelete('/a/group/delete', 'are you sure ?', {id: '{{id}}'})"><img width="20" src="/images/delete.png" /></a></div>
+          </div>
+          {{/groups}}
         </div>
       </div>
+      <div class="block">
+        <div class="title">Players
+          <div class="admin_icons">
+            <a href="javascript:promptEdit('/a/group/add', 'new group name ?', {}, 'name')"><img width="20" src="/images/add.png" /></a>
+          </div>
+        </div>
+        <div class="admin_list">
+          <div class="admin_item">
+            <div class="admin_item_value" style="width: 250px">name</div>
+            <div class="admin_item_value" style="width: 50px">wins</div>
+            <div class="admin_item_value" style="width: 60px">losses</div>
+            <div class="admin_item_value" style="width: 60px">points</div>
+            <div class="admin_item_value" style="width: 60px">with wins</div>
+            <div class="admin_item_value" style="width: 60px">with losses</div>
+            <div class="admin_item_value" style="width: 150px">group</div>
+          </div><br />
+          {{#players}}
+          <div class="admin_item">
+            <div class="admin_item_value" style="width: 250px"><a target="_blank" href="/player?id={{id_player}}">{{player_name}}</a></div>
+            <div class="admin_item_value" style="width: 50px">{{wins}}</div>
+            <div class="admin_item_value" style="width: 60px">{{losses}}</div>
+            <div class="admin_item_value" style="width: 60px">{{points}}</div>
+            <div class="admin_item_value" style="width: 60px">{{with_wins}}</div>
+            <div class="admin_item_value" style="width: 60px">{{with_losses}}</div>
+            <div class="admin_item_value" style="width: 150px">{{group_name}}</div>
+            <div class="admin_item_commands"><a href="javascript:promptDelete('/a/player/delete', 'are you sure ?', {id: '{{id_player}}'})"><img width="20" src="/images/delete.png" /></a></div>
+          </div>
+          {{/players}}
+        </div>
+      </div>
+      <br /><br />
     </div>
-  </body>
+  </div>
+</div>
+</body>
 </html>
