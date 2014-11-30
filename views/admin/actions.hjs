@@ -37,7 +37,7 @@
         </div>
         <div class="admin_list">
           <div class="admin_item">
-            <div class="admin_item_value" style="width: 250px">name</div>
+            <div class="admin_item_value" style="width: 250px">name (id)</div>
             <div class="admin_item_value" style="width: 50px">wins</div>
             <div class="admin_item_value" style="width: 60px">losses</div>
             <div class="admin_item_value" style="width: 60px">points</div>
@@ -57,6 +57,33 @@
             <div class="admin_item_commands"><a href="javascript:promptDelete('/a/player/delete', 'are you sure ?', {id: '{{id_player}}'})"><img width="20" src="/images/delete.png" /></a></div>
           </div>
           {{/players}}
+        </div>
+      </div>
+      <div class="block">
+        <div class="title">Matches
+          <div class="admin_icons">
+            <a href="javascript:promptAddMatch()"><img width="20" src="/images/add.png" /></a>
+          </div>
+        </div>
+        <div class="admin_list">
+          <!--<div class="admin_item">
+            <div class="admin_item_value" style="width: 250px">name (id)</div>
+            <div class="admin_item_value" style="width: 50px">wins</div>
+            <div class="admin_item_value" style="width: 60px">losses</div>
+            <div class="admin_item_value" style="width: 60px">points</div>
+            <div class="admin_item_value" style="width: 60px">with wins</div>
+            <div class="admin_item_value" style="width: 60px">with losses</div>
+            <div class="admin_item_value" style="width: 150px">group</div>
+          </div><br />-->
+          {{#matches}}
+          <div class="admin_item">
+            <div class="admin_item_value" style="width: 753px"><a target="_blank" href="/player?id={{id_player_1}}">{{name_player_1}}</a> vs <a target="_blank" href="/player?id={{id_player_2}}">{{name_player_2}}</a></div>
+            <div class="admin_item_value" style="width: 100px">&nbsp;<div class="command"><a href=""><img width="20" src="/images/add.png" /></a> <a href="javascript:getMatchesDetails('{{id}}')"><img id="rounds_button_{{id}}" width="20" src="/images/down.png" /></a></div></div>
+            <div class="admin_item_commands"><a href="javascript:promptDelete('/a/match/delete', 'are you sure ?', {id: '{{id}}'})"><img width="20" src="/images/delete.png" /></a></div>
+          </div>
+          <div id="rounds_{{id}}" style="display: none">
+          </div>
+          {{/matches}}
         </div>
       </div>
       <br /><br />

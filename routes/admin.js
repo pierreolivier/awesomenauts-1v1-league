@@ -33,7 +33,9 @@ router.get('/actions', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.group.list(function(groups) {
       admin.player.list(function(players) {
-        res.render('admin/actions', {groups: groups, players: players});
+        admin.match.list(function(matches) {
+          res.render('admin/actions', {groups: groups, players: players, matches: matches});
+        })
       });
     });
   });
@@ -121,6 +123,13 @@ router.post('/player/delete', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.player.delete(req.body.id, function() {
       res.end();
+    });
+  });
+});
+router.post('/match/rounds', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.rounds(req.body.id, function(rounds) {
+      res.end(JSON.stringify(rounds));
     });
   });
 });
