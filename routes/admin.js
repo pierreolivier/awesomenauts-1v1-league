@@ -61,4 +61,68 @@ router.post('/group/delete', function(req, res) {
   });
 });
 
+router.post('/player/add', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.add(req.body.name, req.body.steam_profile, req.body.group, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/name', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.name(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/wins', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.wins(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/losses', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.losses(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/points', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.points(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/withwins', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.withwins(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/withlosses', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.withlosses(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/edit/group', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.group(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/delete', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.delete(req.body.id, function() {
+      res.end();
+    });
+  });
+});
+
 module.exports = router;
