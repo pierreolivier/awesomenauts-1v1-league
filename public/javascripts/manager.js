@@ -87,7 +87,64 @@ function promptAddPlayer() {
 }
 
 function promptAddMatch() {
+    var id_player_1 = prompt('id player 1 ?');
+    if (id_player_1 != null) {
+        var id_player_2 = prompt('id player 2 ?');
+        if (id_player_2 != null) {
+            var postData = {id_player_1: id_player_1, id_player_2: id_player_2};
+            $.post('/a/match/add', postData, function(data, status){
+                location.reload();
+            });
+        }
+    }
+}
 
+function promptAddRound(id) {
+    var score_player_1 = prompt('score player 1 ?');
+    if (score_player_1 != null) {
+        var score_player_2 = prompt('score player 2 ?');
+        if (score_player_2 != null) {
+            var nauts = '';
+
+            for (var i = 1; i <= 20 ; i++) {
+                nauts += i + ': ' + getNautName(i) + '   ';
+            }
+
+            var naut_player_1 = prompt('naut player 1 ? ' + nauts);
+            if (naut_player_1 != null) {
+                var naut_player_2 = prompt('naut player 2 ? ' + nauts);
+                if (naut_player_2 != null) {
+                    var postData = {id_match: id, score_player_1: score_player_1, score_player_2: score_player_2, naut_player_1: naut_player_1, naut_player_2: naut_player_2};
+                    $.post('/a/match/round/add', postData, function(data, status){
+                        updateMatchDetail(id, function() {});
+                    });
+                }
+            }
+        }
+    }
+}
+
+function updateMatchDetail(id, cb) {
+    $.post('/a/match/round/list', {id: id}, function(data, status){
+        var div = $('#rounds_' + id);
+
+        console.log(data);
+
+        div.empty();
+
+        data = JSON.parse(data);
+
+        for (var i in data) {
+            div.append('<div class="admin_item">' +
+            '<div class="admin_item_value" style="width: 1px">&nbsp;</div>'+
+            '<div class="admin_item_value" style="width: 20px"><b>#' + data[i].rank + '</b></div>'+
+            '<div class="admin_item_value" style="width: 600px">' + getNautName(data[i].naut_player_1) + ' vs ' + getNautName(data[i].naut_player_2) + '</div>'+
+            '<div class="admin_item_value" style="width: 80px">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '</div>' +
+            '</div>');
+        }
+
+        cb();
+    });
 }
 
 function getMatchesDetails(id) {
@@ -98,21 +155,7 @@ function getMatchesDetails(id) {
         button.attr("src","/images/down.png");
         div.hide();
     } else {
-        $.post('/a/match/rounds', {id: id}, function(data, status){
-            console.log(data);
-
-            div.empty();
-            data = JSON.parse(data);
-
-            for (var i in data) {
-                div.append('<div class="admin_item">' +
-                '<div class="admin_item_value" style="width: 1px">&nbsp;</div>'+
-                '<div class="admin_item_value" style="width: 20px"><b>#' + data[i].rank + '</b></div>'+
-                '<div class="admin_item_value" style="width: 600px">' + getNautName(data[i].naut_player_1) + ' vs ' + getNautName(data[i].naut_player_2) + '</div>'+
-                '<div class="admin_item_value" style="width: 80px">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '</div>' +
-                '</div>');
-            }
-
+        updateMatchDetail(id, function() {
             button.attr("src","/images/up.png");
             div.show();
         });

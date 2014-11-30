@@ -126,10 +126,24 @@ router.post('/player/delete', function(req, res) {
     });
   });
 });
-router.post('/match/rounds', function(req, res) {
+router.post('/match/round/add', function(req, res) {
   checkAccess(req, res, function(req, res) {
-    admin.match.rounds(req.body.id, function(rounds) {
+    admin.match.round.add(req.body.id_match, req.body.score_player_1, req.body.score_player_2, req.body.naut_player_1, req.body.naut_player_2, function() {
+      res.end();
+    });
+  });
+});
+router.post('/match/round/list', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.round.list(req.body.id, function(rounds) {
       res.end(JSON.stringify(rounds));
+    });
+  });
+});
+router.post('/match/add', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.add(req.body.id_player_1, req.body.id_player_2, function() {
+      res.end();
     });
   });
 });
