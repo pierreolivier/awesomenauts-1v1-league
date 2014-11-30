@@ -19,10 +19,11 @@ router.get('/player', function(req, res) {
 });
 
 router.get('/group', function(req, res) {
-  api.group(req.query.id, function() {
-    //res.render('player', {});
+  api.group(req.query.id, function(group) {
+    res.render('group', group);
+    console.log(group);
   });
-  res.end();
+  //res.end();
 });
 
 module.exports = router;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="page" align="center">
+      <div id="content" align="left">
+        <br />
+        <h1>DaveW's 1v1 League!</h1>
+        <p>Welcome to !</p>
+        <div id="player">
+          <div class="title">{{group}}</div>
+          <div class="steam"><a href="/">< back</a></div>
+          <div id="stats">
+            <div class="title">Stats</div>
+            <div id="general">
+              <div class="title">General</div>
+              <div class="line">Game played<div class="value">{{game_played}}</div></div>
+              <div class="line">Points<div class="value">{{points}}</div></div>
+              <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
+              <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
+            </div>
+            <div id="highlights">
+              <div class="title">Highlights</div>
+              {{#highlights}}
+                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+              {{/highlights}}
+            </div>
+            <div id="accomplishments">
+              <div class="title">Accomplishments</div>
+              {{#enable_accomplishments}}
+              <div class="line"><img class="border" src="{{winning_spree_image}}" /><div class="info"><b>Biggest Wining Spree</b><br />{{winning_spree_wins}} consecutive wins</div></div>
+              <div class="line"><img class="border" src="{{best_image}}" /><div class="info"><b>Best match</b><br />{{best_score}}</div></div>
+              {{/enable_accomplishments}}
+            </div>
+          </div>
+          <div id="matches">
+            <div class="title">Matches</div>
+            {{#no_matches}}
+            <div class="no_match">No match!</div>
+            {{/no_matches}}
+            {{#matches}}
+            <div class="match">
+              <div class="name"><a href="/player?id={{id_player_1}}">{{result_player_1}}</a> vs <a href="/player?id={{id_player_2}}">{{result_player_2}}</a></div>
+              <div class="date">{{date}}</div>
+              <div class="rounds">
+                {{#rounds}}
+                <div class="round">
+                  <div class="rank">#{{rank}}</div>
+                  <div class="nauts">
+                    {{nauts}}
+                  </div>
+                  <div class="score">
+                    {{score}}
+                  </div>
+                </div>
+                {{/rounds}}
+              </div>
+              <div class="winner">
+                <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
+              </div>
+            </div>
+            {{/matches}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

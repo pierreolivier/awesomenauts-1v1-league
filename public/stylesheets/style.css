@@ -68,6 +68,10 @@ a:link {
   margin-bottom: 5px;
 }
 
+#groups .group .name a {
+  color: #ffffff;
+}
+
 #groups .group .table {
   width: 475px;
   border: 0;

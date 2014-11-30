@@ -15,7 +15,7 @@
           <div class="list">
             {{#groups}}
             <div class="group">
-              <div class="name"><b>{{name}}</b></div>
+              <div class="name"><a href="/group?id={{id}}"><b>{{name}}</b></a></div>
               <table border="0" class="table">
                 <tr class="header">
                   <td width="10%">Rank</td>
