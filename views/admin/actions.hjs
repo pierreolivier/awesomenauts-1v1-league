@@ -66,15 +66,6 @@
           </div>
         </div>
         <div class="admin_list">
-          <!--<div class="admin_item">
-            <div class="admin_item_value" style="width: 250px">name (id)</div>
-            <div class="admin_item_value" style="width: 50px">wins</div>
-            <div class="admin_item_value" style="width: 60px">losses</div>
-            <div class="admin_item_value" style="width: 60px">points</div>
-            <div class="admin_item_value" style="width: 60px">with wins</div>
-            <div class="admin_item_value" style="width: 60px">with losses</div>
-            <div class="admin_item_value" style="width: 150px">group</div>
-          </div><br />-->
           {{#matches}}
           <div class="admin_item">
             <div class="admin_item_value" style="width: 753px"><a target="_blank" href="/player?id={{id_player_1}}">{{name_player_1}}</a> vs <a target="_blank" href="/player?id={{id_player_2}}">{{name_player_2}}</a></div>

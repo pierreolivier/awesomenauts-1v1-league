@@ -147,5 +147,12 @@ router.post('/match/add', function(req, res) {
     });
   });
 });
+router.post('/match/delete', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.delete(req.body.id, function() {
+      res.end();
+    });
+  });
+});
 
 module.exports = router;
