@@ -36,7 +36,6 @@
               </table>
             </div>
             {{/groups}}
-
           </div>
         </div>
       </div>
