@@ -105,6 +105,10 @@ a:link {
   font-size: 46px;
 }
 
+#player a {
+  color: #ffffff;
+}
+
 #player {
   position: relative;
 }

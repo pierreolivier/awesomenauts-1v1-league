@@ -8,11 +8,11 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>DaveW's 1v1 League!</h1>
+        <h1>{{ title }}</h1>
         <p>Welcome to !</p>
         <div id="player">
           <div class="title">{{name}}</div>
-          {{group}}
+          <a href="/group?id={{id_group}}">{{group}}</a>
           <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steam_profile}}">steam profile ></a></div>
           <div id="stats">
             <div class="title">Stats</div>
@@ -28,7 +28,7 @@
             <div class="highlights">
               <div class="title">Highlights</div>
               {{#highlights}}
-                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds picked<br /><b>{{wins}}</b> wins</div></div>
               {{/highlights}}
             </div>
             <div id="accomplishments">
@@ -53,7 +53,7 @@
                 <div class="round">
                   <div class="rank">#{{rank}}</div>
                   <div class="nauts">
-                    {{nauts}}
+                    {{nauts}} ({{map}})
                   </div>
                   <div class="score">
                     {{score}}

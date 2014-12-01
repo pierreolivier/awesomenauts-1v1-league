@@ -8,7 +8,7 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>DaveW's 1v1 League!</h1>
+        <h1>{{ title }}</h1>
         <p>Welcome to !</p>
         <div id="groups">
           <div class="title">Groups</div>

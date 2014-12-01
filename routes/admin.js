@@ -128,7 +128,7 @@ router.post('/player/delete', function(req, res) {
 });
 router.post('/match/round/add', function(req, res) {
   checkAccess(req, res, function(req, res) {
-    admin.match.round.add(req.body.id_match, req.body.score_player_1, req.body.score_player_2, req.body.naut_player_1, req.body.naut_player_2, function() {
+    admin.match.round.add(req.body.id_match, req.body.picker, req.body.score_player_1, req.body.score_player_2, req.body.naut_player_1, req.body.naut_player_2, req.body.map, function() {
       res.end();
     });
   });

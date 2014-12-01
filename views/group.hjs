@@ -8,7 +8,7 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>DaveW's 1v1 League!</h1>
+        <h1>{{ title }}</h1>
         <p>Welcome to !</p>
         <div id="player">
           <div class="title">{{group}}</div>
@@ -33,7 +33,7 @@
             <div class="highlights" style="width: 25%">
               <div class="title">Most used nauts</div>
               {{#mostUsedNauts}}
-              <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+              <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /></div></div>
               {{/mostUsedNauts}}
             </div>
             <!--
@@ -59,7 +59,7 @@
                 <div class="round">
                   <div class="rank">#{{rank}}</div>
                   <div class="nauts">
-                    {{nauts}}
+                    {{nauts}} ({{map}})
                   </div>
                   <div class="score">
                     {{score}}

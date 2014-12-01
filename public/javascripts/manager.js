@@ -47,6 +47,15 @@ function getNautName(id) {
     }
 }
 
+function getMapName(id) {
+    switch (id) {
+        case 0:
+            return "Sorona";
+        case 1:
+            return "AI station 404";
+    }
+}
+
 function promptEdit(url, title, postData, name, defaultValue) {
     if (defaultValue == undefined) {
         defaultValue = '';
@@ -100,24 +109,39 @@ function promptAddMatch() {
 }
 
 function promptAddRound(id) {
-    var score_player_1 = prompt('score player 1 ?');
-    if (score_player_1 != null) {
-        var score_player_2 = prompt('score player 2 ?');
-        if (score_player_2 != null) {
-            var nauts = '';
+    var picker = prompt('who will pick ? (1 or 2)');
+    if (picker != null) {
+        var score_player_1 = prompt('score player 1 ?');
+        if (score_player_1 != null) {
+            var score_player_2 = prompt('score player 2 ?');
+            if (score_player_2 != null) {
+                var nauts = '';
 
-            for (var i = 1; i <= 20 ; i++) {
-                nauts += i + ': ' + getNautName(i) + '   ';
-            }
+                for (var i = 1; i <= 20; i++) {
+                    nauts += i + ': ' + getNautName(i) + '   ';
+                }
 
-            var naut_player_1 = prompt('naut player 1 ? ' + nauts);
-            if (naut_player_1 != null) {
-                var naut_player_2 = prompt('naut player 2 ? ' + nauts);
-                if (naut_player_2 != null) {
-                    var postData = {id_match: id, score_player_1: score_player_1, score_player_2: score_player_2, naut_player_1: naut_player_1, naut_player_2: naut_player_2};
-                    $.post('/a/match/round/add', postData, function(data, status){
-                        updateMatchDetail(id, function() {});
-                    });
+                var naut_player_1 = prompt('naut ? ' + nauts);
+                if (naut_player_1 != null) {
+                    var naut_player_2 = naut_player_1;
+                    if (naut_player_2 != null) {
+                        var map = prompt('map ? 0: Sorona   1: AI station 404');
+                        if (map != null) {
+                            var postData = {
+                                id_match: id,
+                                picker: picker,
+                                score_player_1: score_player_1,
+                                score_player_2: score_player_2,
+                                naut_player_1: naut_player_1,
+                                naut_player_2: naut_player_2,
+                                map: map
+                            };
+                            $.post('/a/match/round/add', postData, function (data, status) {
+                                updateMatchDetail(id, function () {
+                                });
+                            });
+                        }
+                    }
                 }
             }
         }
@@ -138,7 +162,7 @@ function updateMatchDetail(id, cb) {
             div.append('<div class="admin_item">' +
             '<div class="admin_item_value" style="width: 1px">&nbsp;</div>'+
             '<div class="admin_item_value" style="width: 20px"><b>#' + data[i].rank + '</b></div>'+
-            '<div class="admin_item_value" style="width: 600px">' + getNautName(data[i].naut_player_1) + ' vs ' + getNautName(data[i].naut_player_2) + '</div>'+
+            '<div class="admin_item_value" style="width: 600px">' + getNautName(data[i].naut_player_1) + ' (' + getMapName(data[i].map) + ')</div>'+
             '<div class="admin_item_value" style="width: 80px">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '</div>' +
             '</div>');
         }
