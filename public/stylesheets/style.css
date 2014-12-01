@@ -145,20 +145,43 @@ a:link {
   right: 10px;
 }
 
-#player #stats #highlights {
+#player #stats #general .info2 {
+  position: absolute;
+  top: 10px;
+  left: 70px;
+}
+
+#player #stats #general .info2 a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#player #stats .highlights {
   display: inline-block;
   margin-left: 30px;
   width: 30%;
   vertical-align: top;
 }
 
-#player #stats #highlights .line {
-  position: relative;
+#player #stats .highlights a {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
-#player #stats #highlights .line .info {
+#player #stats .highlights .line {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+#player #stats .highlights .line .info {
   position: absolute;
   top: 12px;
+  left: 70px;
+}
+
+#player #stats .highlights .line .info2 {
+  position: absolute;
+  top: -5px;
   left: 70px;
 }
 

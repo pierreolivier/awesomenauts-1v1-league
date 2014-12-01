@@ -25,7 +25,7 @@
               <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
               <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
             </div>
-            <div id="highlights">
+            <div class="highlights">
               <div class="title">Highlights</div>
               {{#highlights}}
                 <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>

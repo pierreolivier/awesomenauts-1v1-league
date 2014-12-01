@@ -20,21 +20,30 @@
               <div class="line">Game played<div class="value">{{game_played}}</div></div>
               <div class="line">Points<div class="value">{{points}}</div></div>
               <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
-              <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
+              <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div><br />
+              <div class="title">Best player</div>
+              <div class="line"><img class="border" src="{{best_image}}" /><div class="info2"><a href="/player?id={{best_player}}">{{best_name}}</a><br /><b>{{best_score}}</b></div></div>
             </div>
-            <div id="highlights">
+            <div class="highlights">
               <div class="title">Highlights</div>
               {{#highlights}}
-                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+                <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
               {{/highlights}}
             </div>
+            <div class="highlights" style="width: 25%">
+              <div class="title">Most used nauts</div>
+              {{#mostUsedNauts}}
+              <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /><b>{{wins}}</b> wins</div></div>
+              {{/mostUsedNauts}}
+            </div>
+            <!--
             <div id="accomplishments">
               <div class="title">Accomplishments</div>
               {{#enable_accomplishments}}
               <div class="line"><img class="border" src="{{winning_spree_image}}" /><div class="info"><b>Biggest Wining Spree</b><br />{{winning_spree_wins}} consecutive wins</div></div>
               <div class="line"><img class="border" src="{{best_image}}" /><div class="info"><b>Best match</b><br />{{best_score}}</div></div>
               {{/enable_accomplishments}}
-            </div>
+            </div>-->
           </div>
           <div id="matches">
             <div class="title">Matches</div>
