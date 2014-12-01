@@ -213,7 +213,6 @@ a:link {
 
 #player #matches .match {
   position: relative;
-  height: 150px;
   margin-bottom: 20px;
 }
 
@@ -235,9 +234,8 @@ a:link {
 }
 
 #player #matches .match .rounds {
-  position: absolute;
-  left: 20px;
-  top: 25px;
+  padding-left: 20px;
+  padding-top: 25px;
 }
 
 #player #matches .match .rounds .round {
@@ -262,9 +260,12 @@ a:link {
 }
 
 #player #matches .match .winner {
-  position: absolute;
+  /*position: absolute;
   bottom: 0;
-  left: 100px;
+  left: 100px;*/
+  margin-left: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #player #matches .match .winner a {

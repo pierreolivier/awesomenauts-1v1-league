@@ -60,9 +60,9 @@
                   </div>
                 </div>
                 {{/rounds}}
-              </div>
-              <div class="winner">
-                <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
+                <div class="winner">
+                  <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
+                </div>
               </div>
             </div>
             {{/matches}}
