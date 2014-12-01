@@ -77,6 +77,13 @@ router.post('/player/edit/name', function(req, res) {
     });
   });
 });
+router.post('/player/edit/seed', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.edit.seed(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
 router.post('/player/edit/wins', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.player.edit.wins(req.body.id, req.body.value, function() {

@@ -12,7 +12,7 @@
         <p>Welcome to !</p>
         <div id="player">
           <div class="title">{{name}}</div>
-          <a href="/group?id={{id_group}}">{{group}}</a>
+          <a href="/group?id={{id_group}}">{{group}}</a> (seeded {{seed}})
           <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steam_profile}}">steam profile ></a></div>
           <div id="stats">
             <div class="title">Stats</div>
