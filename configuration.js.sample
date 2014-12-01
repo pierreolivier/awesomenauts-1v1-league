@@ -1,0 +1,20 @@
+var configuration = {};
+
+configuration.server = {};
+configuration.ssl = {};
+configuration.mysql = {};
+
+configuration.server.title = '1v1 League!';
+configuration.server.port = 3020;
+configuration.server.password = 'league';
+configuration.server.sessionSecret = 'secret';
+
+configuration.ssl.passphrase = "";
+
+configuration.mysql.host = 'localhost';
+configuration.mysql.port = 3306;
+configuration.mysql.user = 'davew_1v1_league';
+configuration.mysql.password = 'password';
+configuration.mysql.database = 'davew_1v1_league';
+
+module.exports = configuration;

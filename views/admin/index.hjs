@@ -13,7 +13,7 @@
         <div id="groups">
           <div class="title">Admin</div>
           <form action="/a/" method="post">
-            Password : <input name="password" type="password" value="davew"/>
+            Password : <input name="password" type="password" value=""/>
             <input type="submit" value="login"/>
           </form><br /><br />
         </div>
