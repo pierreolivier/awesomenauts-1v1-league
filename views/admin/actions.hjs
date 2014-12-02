@@ -55,7 +55,7 @@
             <div class="admin_item_value" style="width: 60px">{{points}}<div class="command"><a href="javascript:promptEdit('/a/player/edit/points', 'points ?', {id: '{{id_player}}'}, 'value')"><img width="20" src="/images/edit.png" /></a></div></div>
             <div class="admin_item_value" style="width: 60px">{{with_wins}}<div class="command"><a href="javascript:promptEdit('/a/player/edit/withwins', 'points with wins ?', {id: '{{id_player}}'}, 'value')"><img width="20" src="/images/edit.png" /></a></div></div>
             <div class="admin_item_value" style="width: 60px">{{with_losses}}<div class="command"><a href="javascript:promptEdit('/a/player/edit/withlosses', 'points with losses ?', {id: '{{id_player}}'}, 'value')"><img width="20" src="/images/edit.png" /></a></div></div>
-            <div class="admin_item_value" style="width: 100px">{{group_name}}&nbsp;<div class="command"><a href="javascript:promptEdit('/a/player/edit/group', 'group id ?', {id: '{{id_player}}'}, 'value', '{{id_group}}')"><img width="20" src="/images/edit.png" /></a></div></div>
+            <div class="admin_item_value" style="width: 120px">{{group_name}}&nbsp;<div class="command"><a href="javascript:promptEdit('/a/player/edit/group', 'group id ?', {id: '{{id_player}}'}, 'value', '{{id_group}}')"><img width="20" src="/images/edit.png" /></a></div></div>
             <div class="admin_item_commands"><a href="javascript:promptDelete('/a/player/delete', 'are you sure ?', {id: '{{id_player}}'})"><img width="20" src="/images/delete.png" /></a></div>
           </div>
           {{/players}}

@@ -39,6 +39,7 @@ a:link {
 
 #content {
   width: 1000px;
+  min-height: 500px;
   height: 100%;
   padding-top: 0px;
   padding-left: 30px;
@@ -65,7 +66,6 @@ a:link {
 #groups .group {
   display: inline-block;
   margin-right: 20px;
-  margin-bottom: 40px;
 }
 
 #groups .group .name {
@@ -190,7 +190,7 @@ a:link {
 
 #player #stats .highlights .line .info2 {
   position: absolute;
-  top: -5px;
+  top: -0px;
   left: 70px;
 }
 
@@ -222,7 +222,7 @@ a:link {
 
 #player #matches .match {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 00px;
 }
 
 #player #matches .match .name {

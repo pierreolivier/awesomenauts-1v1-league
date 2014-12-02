@@ -14,7 +14,7 @@
           <div class="title">Groups</div>
           <div class="list">
             {{#groups}}
-            <div class="group">
+            <div class="group" style="margin-bottom: 40px">
               <div class="name"><a href="/group?id={{id}}"><b>{{name}}</b></a></div>
               <table border="0" class="table">
                 <tr class="header">

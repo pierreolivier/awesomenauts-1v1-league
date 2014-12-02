@@ -13,6 +13,30 @@
         <div id="player">
           <div class="title">{{group}}</div>
           <div class="steam"><a href="/">< back</a></div>
+          <div id="groups" align="center">
+            <div class="title" align="left">Leaderboard</div>
+            <div class="group">
+              <div class="name"><a href="/group?id={{id}}"><b>{{name}}</b></a></div>
+              <table border="0" class="table" style="width: 800px">
+                <tr class="header">
+                  <td width="10%">Rank</td>
+                  <td>Name</td>
+                  <td width="10%">Wins</td>
+                  <td width="10%">Losses</td>
+                  <td width="10%">Points</td>
+                </tr>
+                {{#players}}
+                <tr class="line">
+                  <td class="rank">{{rank}}</td>
+                  <td class="name"><a href="/player?id={{id}}">{{player_name}}</a></td>
+                  <td>{{wins}}</td>
+                  <td>{{losses}}</td>
+                  <td>{{points}}</td>
+                </tr>
+                {{/players}}
+              </table>
+            </div>
+          </div>
           <div id="stats">
             <div class="title">Stats</div>
             <div id="general">
