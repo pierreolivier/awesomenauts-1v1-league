@@ -19,6 +19,10 @@ coverage
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
+.idea/jsLibraryMappings.xml
+.idea/dataSources.xml
+.idea/dataSources.ids
+.idea/dataSources.local.xml
 .DS_Store
 /build
 
