@@ -151,20 +151,20 @@ function promptAddRound(id) {
     }
 }
 
-function promptEditRound(url, title, postData, name, defaultValue) {
+function promptEditRound(id_match, url, title, postData, name, defaultValue) {
     promptEdit(url, title, postData, name, defaultValue, function () {
-        updateMatchDetail(postData.id, function () {});
+        updateMatchDetail(id_match, function () {});
     });
 }
 
-function promptEditRoundScore(id) {
+function promptEditRoundScore(id, id_match) {
     var score_player_1 = prompt('score player 1 ?');
     if (score_player_1 != null) {
         var score_player_2 = prompt('score player 2 ?');
         if (score_player_2 != null) {
             var postData = {id: id, score_player_1: score_player_1, score_player_2: score_player_2};
             $.post('/a/match/round/edit/score', postData, function(data, status){
-                updateMatchDetail(id, function () {});
+                updateMatchDetail(id_match, function () {});
             });
         }
     }
@@ -173,8 +173,6 @@ function promptEditRoundScore(id) {
 function updateMatchDetail(id, cb) {
     $.post('/a/match/round/list', {id: id}, function(data, status){
         var div = $('#rounds_' + id);
-
-        console.log(data);
 
         div.empty();
 
@@ -189,10 +187,10 @@ function updateMatchDetail(id, cb) {
             div.append('<div class="admin_item">' +
             '<div class="admin_item_value" style="width: 1px">&nbsp;</div>'+
             '<div class="admin_item_value" style="width: 20px"><b>#' + data[i].rank + '</b></div>'+
-            '<div class="admin_item_value" style="width: 200px">' + getNautName(data[i].naut_player_1) + '<div class="command"><a href="javascript:promptEditRound(\'/a/match/round/edit/naut\', \'naut ? ' + nauts + '\', {id: \'' + id + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
-            '<div class="admin_item_value" style="width: 200px">' + getMapName(data[i].map) + '<div class="command"><a href="javascript:promptEditRound(\'/a/match/round/edit/map\', \'map ? 0: Sorona   1: AI station 404\', {id: \'' + id + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
-            '<div class="admin_item_value" style="width: 60px; padding-right: 40px" align="right">' + data[i].picker + '<div class="command"><a href="javascript:promptEditRound(\'/a/match/round/edit/picker\', \'who picked ? (1 or 2)\', {id: \'' + id + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
-            '<div class="admin_item_value" style="width: 140px; padding-right: 40px" align="right">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '<div class="command"><a href="javascript:promptEditRoundScore(\'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>' +
+            '<div class="admin_item_value" style="width: 200px">' + getNautName(data[i].naut_player_1) + '<div class="command"><a href="javascript:promptEditRound(\'' + id + '\', \'/a/match/round/edit/naut\', \'naut ? ' + nauts + '\', {id: \'' + data[i].id_round + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 200px">' + getMapName(data[i].map) + '<div class="command"><a href="javascript:promptEditRound(\'' + id + '\', \'/a/match/round/edit/map\', \'map ? 0: Sorona   1: AI station 404\', {id: \'' + data[i].id_round + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 60px; padding-right: 40px" align="right">' + data[i].picker + '<div class="command"><a href="javascript:promptEditRound(\'' + id + '\', \'/a/match/round/edit/picker\', \'who picked ? (1 or 2)\', {id: \'' + data[i].id_round + '\'}, \'value\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 140px; padding-right: 40px" align="right">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '<div class="command"><a href="javascript:promptEditRoundScore(\'' + data[i].id_round + '\', \'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>' +
             '</div>');
         }
 

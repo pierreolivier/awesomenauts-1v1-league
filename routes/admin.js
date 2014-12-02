@@ -140,6 +140,34 @@ router.post('/match/round/add', function(req, res) {
     });
   });
 });
+router.post('/match/round/edit/picker', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.round.edit.picker(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/match/round/edit/score', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.round.edit.score(req.body.id, req.body.score_player_1, req.body.score_player_2, function() {
+      res.end();
+    });
+  });
+});
+router.post('/match/round/edit/naut', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.round.edit.naut(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
+router.post('/match/round/edit/map', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.match.round.edit.map(req.body.id, req.body.value, function() {
+      res.end();
+    });
+  });
+});
 router.post('/match/round/list', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.match.round.list(req.body.id, function(rounds) {
