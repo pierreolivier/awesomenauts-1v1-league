@@ -17,33 +17,33 @@
             <div class="title">Stats</div>
             <div id="general">
               <div class="title">General</div>
-              <div class="line">Game played<div class="value">{{game_played}}</div></div>
-              <div class="line">Points<div class="value">{{points}}</div></div>
-              <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
-              <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div><br />
+              <div class="container">
+                <div class="line">Game played<div class="value">{{game_played}}</div></div>
+                <div class="line">Points<div class="value">{{points}}</div></div>
+                <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
+                <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
+              </div><br />
               <div class="title">Best player</div>
-              <div class="line"><img class="border" src="{{best_image}}" /><div class="info2"><a href="/player?id={{best_player}}">{{best_name}}</a><br /><b>{{best_score}}</b></div></div>
+              <div class="container">
+                <div class="line"><img class="border" src="{{best_image}}" /><div class="info2"><a href="/player?id={{best_player}}">{{best_name}}</a><br /><b>{{best_score}}</b></div></div>
+              </div>
             </div>
             <div class="highlights">
               <div class="title">Highlights</div>
-              {{#highlights}}
-                <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
-              {{/highlights}}
+              <div class="container">
+                {{#highlights}}
+                  <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
+                {{/highlights}}
+              </div>
             </div>
-            <div class="highlights" style="width: 25%">
+            <div class="highlights" style="width: 29%">
               <div class="title">Most used nauts</div>
-              {{#mostUsedNauts}}
-              <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /></div></div>
-              {{/mostUsedNauts}}
+              <div class="container">
+                {{#mostUsedNauts}}
+                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /></div></div>
+                {{/mostUsedNauts}}
+              </div>
             </div>
-            <!--
-            <div id="accomplishments">
-              <div class="title">Accomplishments</div>
-              {{#enable_accomplishments}}
-              <div class="line"><img class="border" src="{{winning_spree_image}}" /><div class="info"><b>Biggest Wining Spree</b><br />{{winning_spree_wins}} consecutive wins</div></div>
-              <div class="line"><img class="border" src="{{best_image}}" /><div class="info"><b>Best match</b><br />{{best_score}}</div></div>
-              {{/enable_accomplishments}}
-            </div>-->
           </div>
           <div id="matches">
             <div class="title">Matches</div>
@@ -51,26 +51,28 @@
             <div class="no_match">No match!</div>
             {{/no_matches}}
             {{#matches}}
-            <div class="match">
-              <div class="name"><a href="/player?id={{id_player_1}}">{{result_player_1}}</a> vs <a href="/player?id={{id_player_2}}">{{result_player_2}}</a></div>
-              <div class="date">{{date}}</div>
-              <div class="rounds">
-                {{#rounds}}
-                <div class="round">
-                  <div class="rank">#{{rank}}</div>
-                  <div class="nauts">
-                    {{nauts}} ({{map}})
+            <div class="container">
+              <div class="match">
+                <div class="name"><a href="/player?id={{id_player_1}}">{{result_player_1}}</a> vs <a href="/player?id={{id_player_2}}">{{result_player_2}}</a></div>
+                <div class="date">{{date}}</div>
+                <div class="rounds">
+                  {{#rounds}}
+                  <div class="round">
+                    <div class="rank">#{{rank}}</div>
+                    <div class="nauts">
+                      {{nauts}} ({{map}})
+                    </div>
+                    <div class="score">
+                      {{score}}
+                    </div>
                   </div>
-                  <div class="score">
-                    {{score}}
+                  {{/rounds}}
+                  <div class="winner">
+                    <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
                   </div>
-                </div>
-                {{/rounds}}
-                <div class="winner">
-                  <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
                 </div>
               </div>
-            </div>
+            </div><br />
             {{/matches}}
           </div>
         </div>
