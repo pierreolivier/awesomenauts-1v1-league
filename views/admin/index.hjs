@@ -8,8 +8,9 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>DaveW's 1v1 League!</h1>
-        <p>Welcome to !</p>
+        <div align="center">
+          <img src="/images/header.png" />
+        </div>
         <div id="groups">
           <div class="title">Admin</div>
           <form action="/a/" method="post">

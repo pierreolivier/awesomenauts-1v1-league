@@ -8,8 +8,9 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>{{ title }}</h1>
-        <p>Welcome to !</p>
+        <div align="center">
+          <img src="images/header.png" />
+        </div>
         <div id="player">
           <div class="title">{{name}}</div>
           <a href="/group?id={{id_group}}">{{group}}</a> (seeded {{seed}})
@@ -76,6 +77,9 @@
             {{/matches}}
           </div>
         </div>
+      </div>
+      <div id="bottom" align="center">
+        {{ title }} - <a target="_blank" href="http://steamcommunity.com/id/DaveW/">DaveW</a> - <a target="_blank" href="http://steamcommunity.com/id/pierr/">p.o</a> - <a target="_blank" href="https://github.com/pierreolivier/awesomenauts-1v1-league">github</a>
       </div>
     </div>
   </body>

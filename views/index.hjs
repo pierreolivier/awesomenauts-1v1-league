@@ -8,8 +8,9 @@
     <div id="page" align="center">
       <div id="content" align="left">
         <br />
-        <h1>{{ title }}</h1>
-        <p>Welcome to !</p>
+        <div align="center">
+          <img src="images/header.png" />
+        </div>
         <div id="groups">
           <div class="title">Groups</div>
           <div class="list">
@@ -37,6 +38,9 @@
             </div>
             {{/groups}}
           </div>
+        </div>
+        <div id="bottom" align="center">
+          {{ title }} - <a target="_blank" href="http://steamcommunity.com/id/DaveW/">DaveW</a> - <a target="_blank" href="http://steamcommunity.com/id/pierr/">p.o</a> - <a target="_blank" href="https://github.com/pierreolivier/awesomenauts-1v1-league">github</a>
         </div>
       </div>
     </div>

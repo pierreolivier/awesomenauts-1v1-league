@@ -331,3 +331,13 @@ input {
   border-radius: 2px;
   padding: 5px;
 }
+
+#bottom {
+  font-size: 10px;
+  padding-bottom: 10px;
+  color: #6f6f6f;
+}
+
+#bottom a {
+  color: #6f6f6f;
+}
