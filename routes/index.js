@@ -26,17 +26,31 @@ router.get('/', function(req, res) {
 });
 
 router.get('/player', function(req, res) {
-  api.player(req.query.id, function(player) {
-    player.title = configuration.server.title;
-    res.render('player', player);
-  });
+  var cacheKey = '/player_' + req.query.id;
+  var cachedPlayer = manager.getCache().get(cacheKey)[cacheKey];
+  if (cachedPlayer == undefined) {
+    api.player(req.query.id, function (player) {
+      player.title = configuration.server.title;
+      manager.getCache().set(cacheKey, player);
+      res.render('player', player);
+    });
+  } else {
+    res.render('player', cachedPlayer);
+  }
 });
 
 router.get('/group', function(req, res) {
-  api.group(req.query.id, function(group) {
-    group.title = configuration.server.title;
-    res.render('group', group);
-  });
+  var cacheKey = '/group_' + req.query.id;
+  var cachedGroup = manager.getCache().get(cacheKey)[cacheKey];
+  if (cachedGroup == undefined) {
+    api.group(req.query.id, function (group) {
+      group.title = configuration.server.title;
+      manager.getCache().set(cacheKey, group);
+      res.render('group', group);
+    });
+  } else {
+    res.render('group', cachedGroup);
+  }
 });
 
 module.exports = router;

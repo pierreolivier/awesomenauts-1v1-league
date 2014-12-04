@@ -29,7 +29,7 @@
                 {{#players}}
                 <tr class="line">
                   <td class="rank">{{rank}}</td>
-                  <td class="name"><a href="/player?id={{id}}">{{player_name}}</a></td>
+                  <td class="name"><a href="/player?id={{id_player}}">{{player_name}}</a></td>
                   <td>{{wins}}</td>
                   <td>{{losses}}</td>
                   <td>{{points}}</td>
