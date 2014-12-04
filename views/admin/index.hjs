@@ -9,7 +9,7 @@
       <div id="content" align="left">
         <br />
         <div align="center">
-          <img src="/images/header.png" />
+          <a href="/"><img src="/images/header.png" /></a>
         </div>
         <div id="groups">
           <div class="title">Admin</div>

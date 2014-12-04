@@ -4,14 +4,25 @@ var router = express.Router();
 var api = require('../lib/api');
 var configuration = require('../configuration');
 
+var manager = require('../lib/manager');
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  api.groups(function (groups) {
+  var cachedGroups = manager.getCache().get('/')['/'];
+  if (cachedGroups == undefined) {
+    api.groups(function (groups) {
+      manager.getCache().set('/', groups);
+      res.render('index', {
+        title: configuration.server.title,
+        groups: groups
+      });
+    });
+  } else {
     res.render('index', {
       title: configuration.server.title,
-      groups: groups
+      groups: cachedGroups
     });
-  });
+  }
 });
 
 router.get('/player', function(req, res) {

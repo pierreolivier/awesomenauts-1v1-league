@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var NodeCache = require('node-cache');
 var configuration = require('./configuration');
 
 var routes = require('./routes/index');
@@ -27,6 +28,7 @@ manager.setDatabase(mysql.createPool({
     password : configuration.mysql.password,
     database : configuration.mysql.database
 }));
+manager.setCache(new NodeCache({ stdTTL: 360 }));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
