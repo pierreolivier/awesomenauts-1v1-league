@@ -30,20 +30,22 @@
             </div>
             <div class="highlights">
               <div class="title">Highlights</div>
+              {{#highlightsEnable}}
               <div class="container">
                 {{#highlights}}
-                  <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds picked<br /><b>{{wins}}</b> wins</div></div>
+                <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds picked<br /><b>{{wins}}</b> wins</div></div>
                 {{/highlights}}
               </div>
+              {{/highlightsEnable}}
             </div>
             <div class="highlights" style="width: 29%">
               <div class="title">Accomplishments</div>
+              {{#enable_accomplishments}}
               <div class="container">
-                {{#enable_accomplishments}}
                 <div class="line"><img class="border" src="{{winning_spree_image}}" /><div class="info"><b><span style="font-size: 17px">Biggest Wining Spree</span></b><br />{{winning_spree_wins}} consecutive wins</div></div>
                 <div class="line"><img class="border" src="{{best_image}}" /><div class="info"><b><span style="font-size: 17px">Best match</span></b><br />{{best_score}}</div></div>
-                {{/enable_accomplishments}}
               </div>
+              {{/enable_accomplishments}}
             </div>
           </div>
           <div id="matches">

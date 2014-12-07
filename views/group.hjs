@@ -49,25 +49,31 @@
                 <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
               </div><br />
               <div class="title">Best player</div>
+              {{#bestPlayer}}
               <div class="container">
                 <div class="line"><img class="border" src="{{best_image}}" /><div class="info2"><a href="/player?id={{best_player}}">{{best_name}}</a><br /><b>{{best_score}}</b></div></div>
               </div>
+              {{/bestPlayer}}
             </div>
             <div class="highlights">
               <div class="title">Highlights</div>
+              {{#highlightsEnable}}
               <div class="container">
                 {{#highlights}}
-                  <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
+                <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
                 {{/highlights}}
               </div>
+              {{/highlightsEnable}}
             </div>
             <div class="highlights" style="width: 29%">
               <div class="title">Most used nauts</div>
+              {{#mostUsedNautsEnable}}
               <div class="container">
                 {{#mostUsedNauts}}
                 <div class="line"><img class="border" src="{{image}}" /><div class="info"><b>{{rounds}}</b> rounds<br /></div></div>
                 {{/mostUsedNauts}}
               </div>
+              {{/mostUsedNautsEnable}}
             </div>
           </div>
           <div id="matches">
