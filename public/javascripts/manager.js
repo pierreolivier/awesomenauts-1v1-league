@@ -213,15 +213,26 @@ function getMatchesDetails(id) {
     }
 }
 
-function showStatsDetails() {
-    var div = $('#stats_details');
-    var button = $('#stats_details_button');
+function showBlock(id) {
+    var div = $('#' + id);
+    var button = $('#' + id + '_button');
 
     if (div.is(":visible")) {
         button.attr("src","/images/down.png");
         div.hide();
+        $.cookie(id, '0', { expires: 7 });
     } else {
         button.attr("src","/images/up.png");
         div.show();
+        $.cookie(id, '1', { expires: 7 });
+    }
+}
+
+function init() {
+    if ($.cookie('stats_details') == '1') {
+        showBlock('stats_details');
+    }
+    if ($.cookie('players_details') == '1') {
+        showBlock('players_details');
     }
 }

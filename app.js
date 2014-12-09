@@ -32,7 +32,7 @@ manager.setCache(new NodeCache({ stdTTL: 360 }));
 manager.setStats(new NodeCache({ stdTTL: 60, checkperiod: 120 }));
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
