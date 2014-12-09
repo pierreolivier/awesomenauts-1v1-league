@@ -39,7 +39,8 @@
                 {{/players}}
               </table>
             </div>
-          </div>
+          </div><br />
+          Tiebreaker Naut: {{tiebreakerNaut}}
           <div id="stats">
             <div class="title">Stats</div>
             <div id="general">

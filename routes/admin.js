@@ -53,9 +53,16 @@ router.post('/group/add', function(req, res) {
     });
   });
 });
-router.post('/group/edit', function(req, res) {
+router.post('/group/edit/name', function(req, res) {
   checkAccess(req, res, function(req, res) {
-    admin.group.edit(req.body.id, req.body.name, function() {
+    admin.group.edit.name(req.body.id, req.body.name, function() {
+      res.end();
+    });
+  });
+});
+router.post('/group/edit/naut', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.group.edit.naut(req.body.id, req.body.naut, function() {
       res.end();
     });
   });

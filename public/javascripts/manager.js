@@ -170,6 +170,16 @@ function promptEditRoundScore(id, id_match) {
     }
 }
 
+function promptEditGroupTiebreakerNaut(id) {
+    var nauts = '';
+
+    for (var i = 1; i <= 20; i++) {
+        nauts += i + ': ' + getNautName(i) + '   ';
+    }
+
+    promptEdit('/a/group/edit/naut', 'naut ? ' + nauts, {id: id}, 'naut');
+}
+
 function saveAnnouncement(id) {
     var textarea = $('#announcement_text');
     console.log(id);
