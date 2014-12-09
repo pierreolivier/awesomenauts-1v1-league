@@ -48,6 +48,17 @@ a:link {
   background-color: rgba(9, 9, 10, 0.64);
 }
 
+#announcement {
+
+}
+
+#announcement .title {
+  margin-top: 50px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 46px;
+}
+
 #groups {
 
 }

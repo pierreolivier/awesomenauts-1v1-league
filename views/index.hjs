@@ -13,6 +13,9 @@
         <div align="center">
           <a href="/"><img src="/images/header.png" /></a>
         </div>
+        <div id="announcement"><br />
+          {{{announcement}}}
+        </div>
         <div id="groups">
           <div class="title">Groups</div>
           <div class="list">

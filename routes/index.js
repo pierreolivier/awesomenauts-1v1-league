@@ -11,16 +11,20 @@ router.get('/', function(req, res) {
   var cachedGroups = manager.getCache().get('/')['/'];
   if (cachedGroups == undefined) {
     api.groups(function (groups) {
-      manager.getCache().set('/', groups);
-      res.render('index', {
-        title: configuration.server.title,
-        groups: groups
+      api.announcement(function (announcement) {
+        manager.getCache().set('/', {groups: groups, announcement: announcement});
+        res.render('index', {
+          title: configuration.server.title,
+          groups: groups,
+          announcement: announcement
+        });
       });
     });
   } else {
     res.render('index', {
       title: configuration.server.title,
-      groups: cachedGroups
+      groups: cachedGroups.groups,
+      announcement: cachedGroups.announcement
     });
   }
 });
