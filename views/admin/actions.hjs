@@ -118,7 +118,7 @@
         </div>
         <div id="announcement_details" style="display: none" align="right">
           <div>
-          <textarea id="announcement_text" rows="8" cols="108">{{announcement}}</textarea><br />
+          <textarea id="announcement_text" rows="8" style="width: 1000px">{{announcement}}</textarea><br />
             </div>
           <a href="javascript:saveAnnouncement('{{announcementId}}')">Save</a>
         </div>
