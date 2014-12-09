@@ -36,8 +36,8 @@ router.get('/actions', function(req, res) {
       admin.player.list(function(players) {
         admin.match.list(function(matches) {
           admin.stats.get(function(stats) {
-            api.announcement(function(announcement) {
-              res.render('admin/actions', {groups: groups, players: players, matches: matches, visitors: stats.visitors, stats: stats.pages, announcementId: announcement.id, announcement: announcement.announcement});
+            api.server.announcement(function(announcement) {
+              res.render('admin/actions', {groups: groups, players: players, matches: matches, totalVisitors: announcement.totalVisitors, visitors: stats.visitors, stats: stats.pages, announcementId: announcement.id, announcement: announcement.announcement});
             });
           });
         });
@@ -196,7 +196,7 @@ router.post('/match/delete', function(req, res) {
 });
 router.post('/server/announcement', function(req, res) {
   checkAccess(req, res, function(req, res) {
-    admin.server.announcement(req.body.id, req.body.value, function() {
+    admin.server.announcement.edit(req.body.id, req.body.value, function() {
       res.end();
     });
   });

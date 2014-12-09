@@ -14,6 +14,8 @@ var admin = require('./routes/admin');
 
 var manager = require('./lib/manager');
 
+var api = require('./lib/api');
+
 var app = express();
 
 // view engine setup
@@ -28,8 +30,8 @@ manager.setDatabase(mysql.createPool({
     password : configuration.mysql.password,
     database : configuration.mysql.database
 }));
-manager.setCache(new NodeCache({ stdTTL: 360 }));
-manager.setStats(new NodeCache({ stdTTL: 60, checkperiod: 120 }));
+manager.setCache(new NodeCache({ stdTTL: 10 * 60 }));
+manager.setStats(new NodeCache({ stdTTL: 1 * 60, checkperiod: 2 * 60 }));
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -49,6 +51,8 @@ app.use(function(req, res, next) {
         var stat = manager.getStats().get(req.sessionID)[req.sessionID];
         if (stat == undefined) {
             stat = {};
+
+            api.server.incrementVisitors(function() {});
         }
         stat.url = req.url;
         stat.date = new Date();

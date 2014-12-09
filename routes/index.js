@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
   var cachedGroups = manager.getCache().get('/')['/'];
   if (cachedGroups == undefined) {
     api.groups(function (groups) {
-      api.announcement(function (announcement) {
+      api.server.announcement(function (announcement) {
         manager.getCache().set('/', {groups: groups, announcement: announcement});
         res.render('index', {
           title: configuration.server.title,
