@@ -31,7 +31,7 @@
                 {{#players}}
                 <tr class="line">
                   <td class="rank">{{rank}}</td>
-                  <td class="name"><a href="/player?id={{id_player}}">{{player_name}}</a></td>
+                  <td class="name"><a href="/player?id={{idPlayer}}">{{playerName}}</a></td>
                   <td>{{wins}}</td>
                   <td>{{losses}}</td>
                   <td>{{points}}</td>
@@ -51,11 +51,11 @@
                 <div class="line">&nbsp;&nbsp;with losses<div class="value">{{withLosses}}</div></div>
               </div><br />
               <div class="title">Best player</div>
-              {{#bestPlayer}}
+              {{#bestPlayerEnable}}
               <div class="container">
-                <div class="line"><img class="border" src="{{best_image}}" /><div class="info2"><a href="/player?id={{best_player}}">{{best_name}}</a><br /><b>{{best_score}}</b></div></div>
+                <div class="line"><img class="border" src="{{bestImage}}" /><div class="info2"><a href="/player?id={{bestPlayer}}">{{bestName}}</a><br /><b>{{bestScore}}</b></div></div>
               </div>
-              {{/bestPlayer}}
+              {{/bestPlayerEnable}}
             </div>
             <div class="highlights">
               <div class="title">Highlights</div>
@@ -80,13 +80,13 @@
           </div>
           <div id="matches">
             <div class="title">Matches</div>
-            {{#no_matches}}
+            {{#noMatches}}
             <div class="no_match">No match!</div>
-            {{/no_matches}}
+            {{/noMatches}}
             {{#matches}}
             <div class="container">
               <div class="match">
-                <div class="name"><a href="/player?id={{id_player_1}}">{{result_player_1}}</a> vs <a href="/player?id={{id_player_2}}">{{result_player_2}}</a></div>
+                <div class="name"><a href="/player?id={{idPlayer1}}">{{resultPlayer1}}</a> vs <a href="/player?id={{idPlayer2}}">{{resultPlayer2}}</a></div>
                 <div class="date">{{date}}</div>
                 <div class="rounds">
                   {{#rounds}}
@@ -101,7 +101,7 @@
                   </div>
                   {{/rounds}}
                   <div class="winner">
-                    <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
+                    <a href="/player?id={{idWinner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
                   </div>
                 </div>
               </div>
