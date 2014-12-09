@@ -46,7 +46,8 @@
             <div id="general">
               <div class="title">General</div>
               <div class="container">
-                <div class="line">Game played<div class="value">{{gamePlayed}}</div></div>
+                <div class="line">Matches played<div class="value">{{matchesPlayed}}</div></div>
+                <div class="line">Rounds played<div class="value">{{roundsPlayed}}</div></div>
                 <div class="line">Points<div class="value">{{points}}</div></div>
                 <div class="line">&nbsp;&nbsp;with wins<div class="value">{{withWins}}</div></div>
                 <div class="line">&nbsp;&nbsp;with losses<div class="value">{{withLosses}}</div></div>

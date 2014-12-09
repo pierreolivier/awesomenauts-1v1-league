@@ -3,11 +3,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
 -- Export de la structure de table davew_1v1_league. group
 CREATE TABLE IF NOT EXISTS `group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
+  `tiebreaker_naut` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -61,6 +61,17 @@ CREATE TABLE IF NOT EXISTS `round` (
   `replay` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_match` (`id_match`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- L'exportation de données n'été pas sélectionné.
+
+
+-- Export de la structure de table davew_1v1_league. server
+CREATE TABLE IF NOT EXISTS `server` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `announcement` longtext NOT NULL,
+  `visitors` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- L'exportation de données n'été pas sélectionné.
