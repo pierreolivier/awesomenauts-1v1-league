@@ -15,19 +15,19 @@
         </div>
         <div id="player">
           <div class="title">{{name}}</div>
-          <a href="/group?id={{id_group}}">{{group}}</a> (seeded {{seed}})
-          <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steam_profile}}">steam profile ></a></div>
+          <a href="/group?id={{idGroup}}">{{group}}</a> (seeded {{seed}})
+          <div class="steam"><a href="/">< back</a> - <a target="_blank" href="{{steamProfile}}">steam profile ></a></div>
           <div id="stats">
             <div class="title">Stats</div>
             <div id="general">
               <div class="title">General</div>
               <div class="container">
-                <div class="line">Game played<div class="value">{{game_played}}</div></div>
+                <div class="line">Game played<div class="value">{{gamePlayed}}</div></div>
                 <div class="line">Wins<div class="value">{{wins}}</div></div>
                 <div class="line">Losses<div class="value">{{losses}}</div></div>
                 <div class="line">Points<div class="value">{{points}}</div></div>
-                <div class="line">&nbsp;&nbsp;with wins<div class="value">{{with_wins}}</div></div>
-                <div class="line">&nbsp;&nbsp;with losses<div class="value">{{with_losses}}</div></div>
+                <div class="line">&nbsp;&nbsp;with wins<div class="value">{{withWins}}</div></div>
+                <div class="line">&nbsp;&nbsp;with losses<div class="value">{{withLosses}}</div></div>
               </div>
             </div>
             <div class="highlights">
@@ -42,23 +42,23 @@
             </div>
             <div class="highlights" style="width: 29%">
               <div class="title">Accomplishments</div>
-              {{#enable_accomplishments}}
+              {{#accomplishmentsEnable}}
               <div class="container">
-                <div class="line"><img class="border" src="{{winning_spree_image}}" /><div class="info"><b><span style="font-size: 17px">Biggest Wining Spree</span></b><br />{{winning_spree_wins}} consecutive wins</div></div>
-                <div class="line"><img class="border" src="{{best_image}}" /><div class="info"><b><span style="font-size: 17px">Best match</span></b><br />{{best_score}}</div></div>
+                <div class="line"><img class="border" src="{{winningSpreeImage}}" /><div class="info"><b><span style="font-size: 17px">Biggest Wining Spree</span></b><br />{{winningSpreeWins}} consecutive wins</div></div>
+                <div class="line"><img class="border" src="{{bestImage}}" /><div class="info"><b><span style="font-size: 17px">Best match</span></b><br />{{bestScore}}</div></div>
               </div>
-              {{/enable_accomplishments}}
+              {{/accomplishmentsEnable}}
             </div>
           </div>
           <div id="matches">
             <div class="title">Matches</div>
-            {{#no_matches}}
+            {{#noMatches}}
             <div class="no_match">No match!</div>
-            {{/no_matches}}
+            {{/noMatches}}
             {{#matches}}
             <div class="match">
               <div class="container">
-                <div class="name"><a href="/player?id={{id_player_1}}">{{result_player_1}}</a> vs <a href="/player?id={{id_player_2}}">{{result_player_2}}</a></div>
+                <div class="name"><a href="/player?id={{idPlayer1}}">{{resultPlayer1}}</a> vs <a href="/player?id={{idPlayer2}}">{{resultPlayer2}}</a></div>
                 <div class="date">{{date}}</div>
                 <div class="rounds">
                   {{#rounds}}
@@ -73,7 +73,7 @@
                   </div>
                   {{/rounds}}
                   <div class="winner">
-                    <a href="/player?id={{id_winner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
+                    <a href="/player?id={{idWinner}}"><b>{{winner}}</b></a> <span style="color: rgb(122, 211, 238);">won this match !</span>
                   </div>
                 </div>
               </div>
@@ -81,9 +81,9 @@
             {{/matches}}
           </div>
         </div>
-      </div>
-      <div id="bottom" align="center">
-        {{ title }} - <a target="_blank" href="http://steamcommunity.com/id/DaveW/">DaveW</a> - <a target="_blank" href="http://steamcommunity.com/id/pierr/">p.o</a> - <a target="_blank" href="https://github.com/pierreolivier/awesomenauts-1v1-league">github</a>
+        <div id="bottom" align="center">
+          {{ title }} - <a target="_blank" href="http://steamcommunity.com/id/DaveW/">DaveW</a> - <a target="_blank" href="http://steamcommunity.com/id/pierr/">p.o</a> - <a target="_blank" href="https://github.com/pierreolivier/awesomenauts-1v1-league">github</a>
+        </div>
       </div>
     </div>
   </body>
