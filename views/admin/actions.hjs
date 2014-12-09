@@ -16,21 +16,6 @@
     <div id="player">
       <div class="title">Admin</div>
       <div class="block">
-        <div class="title">Groups
-          <div class="admin_icons">
-            <a href="javascript:promptEdit('/a/group/add', 'new group name ?', {}, 'name')"><img width="20" src="/images/add.png" /></a>
-          </div>
-        </div>
-        <div class="admin_list">
-          {{#groups}}
-          <div class="admin_item">
-            <div class="admin_item_value">{{name}} ({{id}})</div>
-            <div class="admin_item_commands"><a href="javascript:promptEdit('/a/group/edit', 'new name ?', {id: '{{id}}'}, 'name')"><img width="20" src="/images/edit.png" /></a> <a href="javascript:promptDelete('/a/group/delete', 'are you sure ?', {id: '{{id}}'})"><img width="20" src="/images/delete.png" /></a></div>
-          </div>
-          {{/groups}}
-        </div>
-      </div>
-      <div class="block">
         <div class="title">Players
           <div class="admin_icons">
             <a href="javascript:promptAddPlayer()"><img width="20" src="/images/add.png" /></a>
@@ -78,6 +63,21 @@
           <div id="rounds_{{id}}" style="display: none">
           </div>
           {{/matches}}
+        </div>
+      </div>
+      <div class="block">
+        <div class="title">Groups
+          <div class="admin_icons">
+            <a href="javascript:promptEdit('/a/group/add', 'new group name ?', {}, 'name')"><img width="20" src="/images/add.png" /></a>
+          </div>
+        </div>
+        <div class="admin_list">
+          {{#groups}}
+          <div class="admin_item">
+            <div class="admin_item_value">{{name}} ({{id}})</div>
+            <div class="admin_item_commands"><a href="javascript:promptEdit('/a/group/edit', 'new name ?', {id: '{{id}}'}, 'name')"><img width="20" src="/images/edit.png" /></a> <a href="javascript:promptDelete('/a/group/delete', 'are you sure ?', {id: '{{id}}'})"><img width="20" src="/images/delete.png" /></a></div>
+          </div>
+          {{/groups}}
         </div>
       </div>
       <br /><br />
