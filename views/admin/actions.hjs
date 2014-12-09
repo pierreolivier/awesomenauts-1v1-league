@@ -16,6 +16,25 @@
     <div id="player">
       <div class="title">Admin</div>
       <div class="block">
+        <div class="title">Stats
+        </div>
+        <div class="admin_list">
+          <div class="admin_item">
+            <div class="admin_item_value" style="width: 100px">{{visitors}} visitors</div>
+            <div class="admin_item_value" style="width: 100px">&nbsp;<div class="command"><a href="javascript:showStatsDetails()"><img id="stats_details_button" width="20" src="/images/down.png" /></a></div></div>
+          </div>
+          <div id="stats_details" style="display: none">
+            {{#stats}}
+            <div class="admin_item">
+              <div class="admin_item_value" style="width: 10px"></div>
+              <div class="admin_item_value" style="width: 300px"><a target="_blank" href="{{url}}">{{url}}</a></div>
+              <div class="admin_item_value" style="width: 100px">{{visitors}} visitors</div>
+            </div>
+            {{/stats}}
+          </div>
+        </div>
+      </div>
+      <div class="block">
         <div class="title">Players
           <div class="admin_icons">
             <a href="javascript:promptAddPlayer()"><img width="20" src="/images/add.png" /></a>

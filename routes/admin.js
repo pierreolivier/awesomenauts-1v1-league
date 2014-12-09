@@ -16,6 +16,7 @@ function checkAccess(req, res, cb) {
 }
 
 router.get('/', function(req, res) {
+  admin.stats.get(function(){});
   checkAccess(req, res, function(req, res) {
     res.redirect('/a/actions');
   });
@@ -34,8 +35,10 @@ router.get('/actions', function(req, res) {
     admin.group.list(function(groups) {
       admin.player.list(function(players) {
         admin.match.list(function(matches) {
-          res.render('admin/actions', {groups: groups, players: players, matches: matches});
-        })
+          admin.stats.get(function(stats) {
+            res.render('admin/actions', {groups: groups, players: players, matches: matches, visitors: stats.visitors, stats: stats.pages});
+          });
+        });
       });
     });
   });

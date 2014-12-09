@@ -212,3 +212,16 @@ function getMatchesDetails(id) {
         });
     }
 }
+
+function showStatsDetails() {
+    var div = $('#stats_details');
+    var button = $('#stats_details_button');
+
+    if (div.is(":visible")) {
+        button.attr("src","/images/down.png");
+        div.hide();
+    } else {
+        button.attr("src","/images/up.png");
+        div.show();
+    }
+}

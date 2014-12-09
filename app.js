@@ -29,6 +29,7 @@ manager.setDatabase(mysql.createPool({
     database : configuration.mysql.database
 }));
 manager.setCache(new NodeCache({ stdTTL: 360 }));
+manager.setStats(new NodeCache({ stdTTL: 60, checkperiod: 120 }));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -42,6 +43,20 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
+app.use(function(req, res, next) {
+    if (req.url != '/favicon.ico') {
+        var stat = manager.getStats().get(req.sessionID)[req.sessionID];
+        if (stat == undefined) {
+            stat = {};
+        }
+        stat.url = req.url;
+        stat.date = new Date();
+        manager.getStats().set(req.sessionID, stat);
+    }
+
+    next();
+});
 
 app.use('/', routes);
 app.use('/a/', admin);
