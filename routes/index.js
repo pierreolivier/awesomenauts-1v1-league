@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
         res.render('index', {
           title: configuration.server.title,
           groups: groups,
-          announcement: announcement
+          announcement: announcement.announcement
         });
       });
     });
@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
     res.render('index', {
       title: configuration.server.title,
       groups: cachedGroups.groups,
-      announcement: cachedGroups.announcement
+      announcement: cachedGroups.announcement.announcement
     });
   }
 });

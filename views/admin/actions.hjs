@@ -107,6 +107,19 @@
           {{/groups}}
         </div>
       </div>
+      <div class="block">
+        <div class="title">Announcement
+          <div class="admin_icons">
+            <a href="javascript:showBlock('announcement_details')"><img id="announcement_details_button" width="20" src="/images/down.png" /></a>
+          </div>
+        </div>
+        <div id="announcement_details" style="display: none" align="right">
+          <div>
+          <textarea id="announcement_text" rows="8" cols="108">{{announcement}}</textarea><br />
+            </div>
+          <a href="javascript:saveAnnouncement('{{announcementId}}')">Save</a>
+        </div>
+      </div>
       <br /><br />
     </div>
   </div>

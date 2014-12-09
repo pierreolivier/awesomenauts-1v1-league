@@ -36,7 +36,9 @@ router.get('/actions', function(req, res) {
       admin.player.list(function(players) {
         admin.match.list(function(matches) {
           admin.stats.get(function(stats) {
-            res.render('admin/actions', {groups: groups, players: players, matches: matches, visitors: stats.visitors, stats: stats.pages});
+            api.announcement(function(announcement) {
+              res.render('admin/actions', {groups: groups, players: players, matches: matches, visitors: stats.visitors, stats: stats.pages, announcementId: announcement.id, announcement: announcement.announcement});
+            });
           });
         });
       });
@@ -188,6 +190,13 @@ router.post('/match/add', function(req, res) {
 router.post('/match/delete', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.match.delete(req.body.id, function() {
+      res.end();
+    });
+  });
+});
+router.post('/server/announcement', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.server.announcement(req.body.id, req.body.value, function() {
       res.end();
     });
   });

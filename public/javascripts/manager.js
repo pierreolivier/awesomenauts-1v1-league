@@ -170,6 +170,15 @@ function promptEditRoundScore(id, id_match) {
     }
 }
 
+function saveAnnouncement(id) {
+    var textarea = $('#announcement_text');
+    console.log(id);
+
+    $.post('/a/server/announcement', {id: id, value: textarea.val()}, function(data, status){
+        alert('Saved!');
+    });
+}
+
 function updateMatchDetail(id, cb) {
     $.post('/a/match/round/list', {id: id}, function(data, status){
         var div = $('#rounds_' + id);
@@ -234,5 +243,8 @@ function init() {
     }
     if ($.cookie('players_details') == '1') {
         showBlock('players_details');
+    }
+    if ($.cookie('announcement_details') == '1') {
+        showBlock('announcement_details');
     }
 }
