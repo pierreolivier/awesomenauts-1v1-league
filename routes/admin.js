@@ -16,7 +16,6 @@ function checkAccess(req, res, cb) {
 }
 
 router.get('/', function(req, res) {
-  admin.stats.get(function(){});
   checkAccess(req, res, function(req, res) {
     res.redirect('/a/actions');
   });
@@ -141,6 +140,13 @@ router.post('/player/edit/group', function(req, res) {
 router.post('/player/delete', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.player.delete(req.body.id, function() {
+      res.end();
+    });
+  });
+});
+router.post('/player/calculate_points', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.calculatePoints(req.body.id, function() {
       res.end();
     });
   });

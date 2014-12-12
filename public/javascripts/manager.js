@@ -67,8 +67,7 @@ function promptEdit(url, title, postData, name, defaultValue, cb) {
     if (value != null) {
         postData[name] = value;
 
-        $.post(url, postData, function(data, status){
-            //location.reload();
+        $.post(url, postData, function(data, status) {
             cb();
         });
     }
@@ -141,7 +140,13 @@ function promptAddRound(id) {
                                 map: map
                             };
                             $.post('/a/match/round/add', postData, function (data, status) {
-                                updateMatchDetail(id, function () {});
+                                updateMatchDetail(id, function () {
+                                    var div = $('#rounds_' + id);
+                                    var button = $('#rounds_button_' + id);
+
+                                    button.attr("src","/images/up.png");
+                                    div.show();
+                                });
                             });
                         }
                     }

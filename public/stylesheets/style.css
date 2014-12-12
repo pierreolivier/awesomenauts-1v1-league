@@ -26,6 +26,7 @@ a:link {
 }
 
 #page {
+  position: relative;
   background-color: #000000;
   background-image: url("../images/background.jpg");
   background-size: cover;
