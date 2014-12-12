@@ -32,7 +32,7 @@ router.post('/', function(req, res) {
 router.get('/actions', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.group.list(function(groups) {
-      admin.player.list(function(players) {
+      admin.player.list.group(function(players) {
         admin.match.list(function(matches) {
           admin.stats.get(function(stats) {
             api.server.announcement(function(announcement) {
@@ -74,6 +74,13 @@ router.post('/group/delete', function(req, res) {
   });
 });
 
+router.post('/player/list/only', function(req, res) {
+  checkAccess(req, res, function(req, res) {
+    admin.player.list.only(function(players) {
+      res.end(JSON.stringify(players));
+    });
+  });
+});
 router.post('/player/add', function(req, res) {
   checkAccess(req, res, function(req, res) {
     admin.player.add(req.body.name, req.body.steam_profile, req.body.group, function() {

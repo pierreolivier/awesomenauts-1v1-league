@@ -363,3 +363,7 @@ input {
   color: #ffffff;
   text-decoration: underline;
 }
+
+#popup a:hover {
+  cursor: pointer;
+}

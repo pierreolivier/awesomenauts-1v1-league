@@ -98,7 +98,7 @@ function promptAddPlayer() {
     }
 }
 
-function promptAddMatch() {
+/*function promptAddMatch() {
     var id_player_1 = prompt('id player 1 ?');
     if (id_player_1 != null) {
         var id_player_2 = prompt('id player 2 ?');
@@ -109,7 +109,7 @@ function promptAddMatch() {
             });
         }
     }
-}
+}*/
 
 function promptAddRound(id) {
     var picker = prompt('who will pick ? (1 or 2)');
@@ -254,6 +254,19 @@ function showBlock(id) {
 
 function promptAutocomplete(name, values, button, cb) {
     var page = $('#page');
+    var source = [];
+    var sourceMapping = {};
+
+    for (var i in values) {
+        source.push(values[i]);
+        if (Object.prototype.toString.call(values) == '[object Object]') {
+            sourceMapping[values[i]] = i;
+        } else {
+            sourceMapping[values[i]] = values[i];
+        }
+    }
+
+    console.log(sourceMapping);
 
     page.append('<div id="popup" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;background-color: rgba(0, 0, 0, 0.86)"></div>');
 
@@ -263,11 +276,62 @@ function promptAutocomplete(name, values, button, cb) {
     '<br /><br />' +
     name + ': ' +
     '<input id="value" />' +
-    '<br /><br /><div align="right" style="width: 90%"><a href="">' + button + '</a></div>' +
+    '<div align="left" style="position: absolute; left: 15px; bottom: 15px;"><a id="cancel">cancel</a></div><div align="right" style="position: absolute; right: 15px; bottom: 15px;"><a id="button">' + button + '</a></div>' +
     '</div>');
 
-    $( "#value" ).autocomplete({
-        source: values
+    var input = popup.find("#value");
+
+    input.autocomplete({
+        source: source
+    });
+
+    popup.find("#cancel").click(function () {
+        popup.remove();
+        cb(undefined);
+    });
+
+    popup.find("#button").click(function () {
+        popup.remove();
+        if (values == undefined) {
+            cb(input.val());
+        } else {
+            cb(sourceMapping[input.val()]);
+        }
+    });
+}
+
+function getPlayers(cb) {
+    $.post('/a/player/list/only', {}, function(data, status){
+        cb(JSON.parse(data));
+    });
+}
+
+function getPlayersMap(cb) {
+    getPlayers(function (players) {
+        var map = {};
+
+        for (var i in players) {
+            map[players[i].id] = players[i].name;
+        }
+
+        cb(map);
+    });
+}
+
+function promptAddMatch() {
+    getPlayersMap(function (map) {
+        promptAutocomplete('Player 1 name', map, 'next', function(idPlayer1) {
+            if (idPlayer1 != undefined) {
+                promptAutocomplete('Player 2 name', map, 'add', function(idPlayer2) {
+                    if (idPlayer2 != undefined) {
+                        var postData = {id_player_1: idPlayer1, id_player_2: idPlayer2};
+                        $.post('/a/match/add', postData, function(data, status){
+                            location.reload();
+                        });
+                    }
+                });
+            }
+        });
     });
 }
 
