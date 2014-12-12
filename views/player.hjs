@@ -46,7 +46,7 @@
               {{#accomplishmentsEnable}}
               <div class="container">
                 <div class="line"><img class="border" src="{{winningSpreeImage}}" /><div class="info"><b><span style="font-size: 17px">Biggest Wining Spree</span></b><br />{{winningSpreeWins}} consecutive wins</div></div>
-                <div class="line"><img class="border" src="{{bestImage}}" /><div class="info"><b><span style="font-size: 17px">Best match</span></b><br />{{bestScore}}</div></div>
+                <div class="line"><img class="border" src="{{bestImage}}" /><div class="info"><b><span style="font-size: 17px">Best round</span></b><br />{{bestScore}}</div></div>
               </div>
               {{/accomplishmentsEnable}}
             </div>
