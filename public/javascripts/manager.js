@@ -252,6 +252,25 @@ function showBlock(id) {
     }
 }
 
+function promptAutocomplete(name, values, button, cb) {
+    var page = $('#page');
+
+    page.append('<div id="popup" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;background-color: rgba(0, 0, 0, 0.86)"></div>');
+
+    var popup = $('#popup');
+
+    popup.append('<div style="position: fixed; left: 50%; top: 50%; background-color: #000000; border: solid #ffffff 1px;width: 500px; height: 150px; margin-left: -250px; margin-top: -75px" class="ui-widget">' +
+    '<br /><br />' +
+    name + ': ' +
+    '<input id="value" />' +
+    '<br /><br /><div align="right" style="width: 90%"><a href="">' + button + '</a></div>' +
+    '</div>');
+
+    $( "#value" ).autocomplete({
+        source: values
+    });
+}
+
 function init() {
     if ($.cookie('stats_details') == '1') {
         showBlock('stats_details');

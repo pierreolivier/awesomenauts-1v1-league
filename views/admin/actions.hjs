@@ -3,8 +3,10 @@
 <head>
   <title>{{ title }}</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/jquery-ui.css' />
   <script src="/javascripts/jquery-2.1.1.js"></script>
   <script src="/javascripts/jquery.cookie.js"></script>
+  <script src="/javascripts/jquery-ui.js"></script>
   <script src="/javascripts/manager.js"></script>
   <script>
     $(document).ready(function() {

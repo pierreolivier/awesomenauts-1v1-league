@@ -358,3 +358,8 @@ input {
 .block textarea {
   font: 18px nauts-font, "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+#popup a {
+  color: #ffffff;
+  text-decoration: underline;
+}
