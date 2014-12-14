@@ -77,23 +77,6 @@ function getMapsMap() {
     return map;
 }
 
-/*function promptEdit(url, title, postData, name, defaultValue, cb) {
-    if (defaultValue == undefined) {
-        defaultValue = '';
-    }
-    if (cb == undefined) {
-        cb = function() { location.reload() };
-    }
-    var value = prompt(title, defaultValue);
-    if (value != null) {
-        postData[name] = value;
-
-        $.post(url, postData, function(data, status) {
-            cb();
-        });
-    }
-}*/
-
 function promptDelete(url, title, postData) {
     var value = confirm(title);
     if (value) {
@@ -102,109 +85,6 @@ function promptDelete(url, title, postData) {
         });
     }
 }
-
-/*function promptAddPlayer() {
-    var name = prompt('name ?');
-    if (name != null) {
-        var steamProfile = prompt('steam profile url ?');
-        if (steamProfile != null) {
-            var group = prompt('group id ?');
-            if (group != null) {
-                var postData = {name: name, steam_profile: steamProfile, group: group};
-                $.post('/a/player/add', postData, function(data, status){
-                    location.reload();
-                });
-            }
-        }
-    }
-}*/
-
-/*function promptAddMatch() {
-    var id_player_1 = prompt('id player 1 ?');
-    if (id_player_1 != null) {
-        var id_player_2 = prompt('id player 2 ?');
-        if (id_player_2 != null) {
-            var postData = {id_player_1: id_player_1, id_player_2: id_player_2};
-            $.post('/a/match/add', postData, function(data, status){
-                location.reload();
-            });
-        }
-    }
-}*/
-
-/*function promptAddRound(id) {
-    var picker = prompt('who will pick ? (1 or 2)');
-    if (picker != null) {
-        var score_player_1 = prompt('score player 1 ?');
-        if (score_player_1 != null) {
-            var score_player_2 = prompt('score player 2 ?');
-            if (score_player_2 != null) {
-                var nauts = '';
-
-                for (var i = 1; i <= 20; i++) {
-                    nauts += i + ': ' + getNautName(i) + '   ';
-                }
-
-                var naut_player_1 = prompt('naut ? ' + nauts);
-                if (naut_player_1 != null) {
-                    var naut_player_2 = naut_player_1;
-                    if (naut_player_2 != null) {
-                        var map = prompt('map ? 0: Sorona   1: AI station 404');
-                        if (map != null) {
-                            var postData = {
-                                id_match: id,
-                                picker: picker,
-                                score_player_1: score_player_1,
-                                score_player_2: score_player_2,
-                                naut_player_1: naut_player_1,
-                                naut_player_2: naut_player_2,
-                                map: map
-                            };
-                            $.post('/a/match/round/add', postData, function (data, status) {
-                                updateMatchDetail(id, function () {
-                                    var div = $('#rounds_' + id);
-                                    var button = $('#rounds_button_' + id);
-
-                                    button.attr("src","/images/up.png");
-                                    div.show();
-                                });
-                            });
-                        }
-                    }
-                }
-            }
-        }
-    }
-}*/
-
-/*function promptEditRound(id_match, url, title, postData, name, defaultValue) {
-    promptEdit(url, title, postData, name, defaultValue, function () {
-        updateMatchDetail(id_match, function () {});
-    });
-}*/
-
-/*function promptEditRoundScore(id, id_match) {
-    var score_player_1 = prompt('score player 1 ?');
-    if (score_player_1 != null) {
-        var score_player_2 = prompt('score player 2 ?');
-        if (score_player_2 != null) {
-            var postData = {id: id, score_player_1: score_player_1, score_player_2: score_player_2};
-            $.post('/a/match/round/edit/score', postData, function(data, status){
-                updateMatchDetail(id_match, function () {});
-            });
-        }
-    }
-}*/
-
-/*function promptEditGroupTiebreakerNaut(id) {
-    var nauts = '';
-
-    for (var i = 1; i <= 20; i++) {
-        nauts += i + ': ' + getNautName(i) + '   ';
-    }
-
-    promptEdit('/a/group/edit/naut', 'naut ? ' + nauts, {id: id}, 'naut');
-}*/
 
 function saveAnnouncement(id) {
     var textarea = $('#announcement_text');
@@ -223,18 +103,13 @@ function updateMatchDetail(id, cb) {
 
         data = JSON.parse(data);
 
-        var nauts = '';
-        for (var i = 1; i <= 20; i++) {
-            nauts += i + ': ' + getNautName(i) + '   ';
-        }
-
         for (var i in data) {
             div.append('<div class="admin_item">' +
             '<div class="admin_item_value" style="width: 1px">&nbsp;</div>'+
             '<div class="admin_item_value" style="width: 20px"><b>#' + data[i].rank + '</b></div>'+
-            '<div class="admin_item_value" style="width: 200px">' + getNautName(data[i].naut_player_1) + '<div class="command"><a href="javascript:promptEditRoundNaut(\'' + data[i].id_round + '\', \'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
-            '<div class="admin_item_value" style="width: 200px">' + getMapName(data[i].map) + '<div class="command"><a href="javascript:promptEditRoundMap(\'' + data[i].id_round + '\', \'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
-            '<div class="admin_item_value" style="width: 60px; padding-right: 40px" align="right">' + data[i].picker + '<div class="command"><a href="javascript:promptEditRoundPicker(\'' + data[i].id_round + '\', \'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 200px">' + getNautName(data[i].naut_player_1) + '<div class="command"><a href="javascript:promptEditRoundNaut(\'' + data[i].id_round + '\', \'' + id + '\', \'' + getNautName(data[i].naut_player_1) + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 200px">' + getMapName(data[i].map) + '<div class="command"><a href="javascript:promptEditRoundMap(\'' + data[i].id_round + '\', \'' + id + '\', \'' + getMapName(data[i].map) + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
+            '<div class="admin_item_value" style="width: 60px; padding-right: 40px" align="right">' + data[i].picker + '<div class="command"><a href="javascript:promptEditRoundPicker(\'' + data[i].id_round + '\', \'' + id + '\', \'' + data[i].picker + '\')"><img width="20" src="/images/edit.png" /></a></div></div>'+
             '<div class="admin_item_value" style="width: 140px; padding-right: 40px" align="right">' + data[i].score_player_1 + ' - ' + data[i].score_player_2 + '<div class="command"><a href="javascript:promptEditRoundScore(\'' + data[i].id_round + '\', \'' + id + '\')"><img width="20" src="/images/edit.png" /></a></div></div>' +
             '</div>');
         }
@@ -273,13 +148,17 @@ function showBlock(id) {
     }
 }
 
-function promptAutocomplete(name, values, button, cb, err, defaultValue) {
+function promptAutocomplete(name, values, button, mode, defaultValue, cb) {
     var page = $('#page');
     var source = [];
     var sourceMapping = {};
 
-    if (err != false) {
-        err = true;
+    if (cb == undefined) {
+        cb = function() { };
+    }
+
+    if (mode != 'text' && mode != 'list' && mode != 'textNoError') {
+        mode = 'text';
     }
 
     if (defaultValue == undefined) {
@@ -299,10 +178,25 @@ function promptAutocomplete(name, values, button, cb, err, defaultValue) {
 
     var popup = $('#popup');
 
+    var valueInput = '';
+    if (mode == 'text' || mode == 'textNoError') {
+        valueInput = '<input id="value" value="' + defaultValue + '"/>';
+    } else if (mode == 'list') {
+        valueInput = '<select id="value">';
+        for (var i in source) {
+            if (source[i] == defaultValue) {
+                valueInput += '<option selected="selected">' + source[i] + '</option>';
+            } else {
+                valueInput += '<option>' + source[i] + '</option>';
+            }
+        }
+        valueInput += '</select>';
+    }
+
     popup.append('<div style="position: fixed; left: 50%; top: 50%; background-color: #000000; border: solid #ffffff 1px;width: 500px; height: 150px; margin-left: -250px; margin-top: -75px" class="ui-widget">' +
     '<br /><br />' +
     name + ': ' +
-    '<input id="value" value="' + defaultValue + '"/>' +
+    valueInput +
     '<div id="error" style="display: none; color: #8B0000">value error</div>' +
     '<div align="left" style="position: absolute; left: 15px; bottom: 15px;"><a id="cancel">cancel</a></div><div align="right" style="position: absolute; right: 15px; bottom: 15px;"><a id="button">' + button + '</a></div>' +
     '</div>');
@@ -324,7 +218,7 @@ function promptAutocomplete(name, values, button, cb, err, defaultValue) {
             cb(input.val());
         } else {
             var value = sourceMapping[input.val()];
-            if (!err) {
+            if (mode == 'textNoError') {
                 if (value != undefined) {
                     popup.remove();
                     cb(value);
@@ -362,7 +256,7 @@ function promptEdit(url, title, postData, name, defaultValue, cb) {
         cb = function() { location.reload() };
     }
 
-    promptAutocomplete(title, undefined, 'save', function(value) {
+    promptAutocomplete(title, undefined, 'save', 'text', defaultValue, function(value) {
         if (value != undefined) {
             postData[name] = value;
 
@@ -370,22 +264,22 @@ function promptEdit(url, title, postData, name, defaultValue, cb) {
                 cb();
             });
         }
-    }, true, defaultValue);
+    });
 }
 
 function promptAddPlayer() {
-    promptAutocomplete('Player name', undefined, 'next', function(name) {
+    promptAutocomplete('Player name', undefined, 'next', 'text', '', function(name) {
         if (name != undefined) {
-            promptAutocomplete('Steam profile url', undefined, 'next', function(steamProfile) {
+            promptAutocomplete('Steam profile url', undefined, 'next', 'text', '', function(steamProfile) {
                 if (steamProfile != undefined) {
-                    promptAutocomplete('Group', groups, 'add', function(group) {
+                    promptAutocomplete('Group', groups, 'add', 'list', '', function(group) {
                         if (group != undefined) {
                             var postData = {name: name, steam_profile: steamProfile, group: group};
                             $.post('/a/player/add', postData, function(data, status){
                                 location.reload();
                             });
                         }
-                    }, false);
+                    });
                 }
             });
         }
@@ -393,30 +287,30 @@ function promptAddPlayer() {
 }
 
 function promptEditPlayerGroup(id, defaultValue) {
-    promptAutocomplete('Group', groups, 'save', function(group) {
+    promptAutocomplete('Group', groups, 'save', 'list', defaultValue, function(group) {
         if (group != undefined) {
             var postData = {id: id, value: group};
             $.post('/a/player/edit/group', postData, function(data, status){
                 location.reload();
             });
         }
-    }, false, defaultValue);
+    });
 }
 
 function promptAddMatch() {
     getPlayersMap(function (map) {
-        promptAutocomplete('Player 1 name', map, 'next', function(idPlayer1) {
+        promptAutocomplete('Player 1 name', map, 'next', 'textNoError', '', function(idPlayer1) {
             if (idPlayer1 != undefined) {
-                promptAutocomplete('Player 2 name', map, 'add', function(idPlayer2) {
+                promptAutocomplete('Player 2 name', map, 'add', 'textNoError', '', function(idPlayer2) {
                     if (idPlayer2 != undefined) {
                         var postData = {id_player_1: idPlayer1, id_player_2: idPlayer2};
                         $.post('/a/match/add', postData, function(data, status){
                             location.reload();
                         });
                     }
-                }, false);
+                });
             }
-        }, false);
+        });
     });
 }
 
@@ -424,19 +318,19 @@ function promptAddRound(id) {
     var nautsMap = getNautsMap();
     var mapsMap = getMapsMap();
     var score = [];
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 0; i <= 10; i++) {
         score.push(i.toString());
     }
 
-    promptAutocomplete('Who picked (1 or 2)', ['1', '2'], 'next', function(picker) {
+    promptAutocomplete('Who picked', ['1', '2'], 'next', 'list', '', function(picker) {
         if (picker != undefined) {
-            promptAutocomplete('Score player 1', score, 'next', function(scorePlayer1) {
+            promptAutocomplete('Score player 1', score, 'next', 'textNoError', '', function(scorePlayer1) {
                 if (scorePlayer1 != undefined) {
-                    promptAutocomplete('Score player 2', score, 'next', function(scorePlayer2) {
+                    promptAutocomplete('Score player 2', score, 'next', 'textNoError', '', function(scorePlayer2) {
                         if (scorePlayer2 != undefined) {
-                            promptAutocomplete('Naut', nautsMap, 'next', function(naut) {
+                            promptAutocomplete('Naut', nautsMap, 'next', 'list', '', function(naut) {
                                 if (naut != undefined) {
-                                    promptAutocomplete('Map', mapsMap, 'add', function(map) {
+                                    promptAutocomplete('Map', mapsMap, 'add', 'list', '', function(map) {
                                         if (map != undefined) {
                                             var postData = {
                                                 id_match: id,
@@ -457,59 +351,59 @@ function promptAddRound(id) {
                                                 });
                                             });
                                         }
-                                    }, false);
+                                    });
                                 }
-                            }, false);
+                            });
                         }
-                    }, false);
+                    });
                 }
-            }, false);
+            });
         }
-    }, false);
+    });
 }
 
-function promptEditRoundNaut(id, id_match) {
-    promptAutocomplete('Naut', getNautsMap(), 'save', function (naut) {
+function promptEditRoundNaut(id, id_match, current) {
+    promptAutocomplete('Naut', getNautsMap(), 'save', 'list', current, function (naut) {
         if (naut != undefined) {
             var postData = {id: id, value: naut};
             $.post('/a/match/round/edit/naut', postData, function(data, status){
                 updateMatchDetail(id_match, function () {});
             });
         }
-    }, false);
+    });
 }
 
-function promptEditRoundMap(id, id_match) {
-    promptAutocomplete('Map', getMapsMap(), 'save', function (map) {
+function promptEditRoundMap(id, id_match, current) {
+    promptAutocomplete('Map', getMapsMap(), 'save', 'list', current, function (map) {
         if (map != undefined) {
             var postData = {id: id, value: map};
             $.post('/a/match/round/edit/map', postData, function(data, status){
                 updateMatchDetail(id_match, function () {});
             });
         }
-    }, false);
+    });
 }
 
-function promptEditRoundPicker(id, id_match) {
-    promptAutocomplete('Who picked (1 or 2)', ['1', '2'], 'save', function(picker) {
+function promptEditRoundPicker(id, id_match, current) {
+    promptAutocomplete('Who picked', ['1', '2'], 'save', 'list', current, function(picker) {
         if (picker != undefined) {
             var postData = {id: id, value: picker};
             $.post('/a/match/round/edit/picker', postData, function(data, status){
                 updateMatchDetail(id_match, function () {});
             });
         }
-    }, false);
+    });
 }
 
 function promptEditRoundScore(id, id_match) {
     var score = [];
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 0; i <= 10; i++) {
         score.push(i.toString());
     }
 
-    promptAutocomplete('Score player 1', score, 'next', function(scorePlayer1) {
+    promptAutocomplete('Score player 1', score, 'next', 'textNoError', '', function(scorePlayer1) {
         if (scorePlayer1 != undefined) {
-            promptAutocomplete('Score player 2', score, 'save', function (scorePlayer2) {
+            promptAutocomplete('Score player 2', score, 'save', 'textNoError', '', function (scorePlayer2) {
                 if (scorePlayer2 != undefined) {
                     var postData = {id: id, score_player_1: scorePlayer1, score_player_2: scorePlayer2};
                     $.post('/a/match/round/edit/score', postData, function(data, status){
@@ -521,15 +415,15 @@ function promptEditRoundScore(id, id_match) {
     });
 }
 
-function promptEditGroupTiebreakerNaut(id) {
-    promptAutocomplete('Naut', getNautsMap(), 'save', function (naut) {
+function promptEditGroupTiebreakerNaut(id, current) {
+    promptAutocomplete('Naut', getNautsMap(), 'save', 'list', current, function (naut) {
         if (naut != undefined) {
             var postData = {id: id, naut: naut};
             $.post('/a/group/edit/naut', postData, function(data, status){
                 location.reload();
             });
         }
-    }, false);
+    });
 }
 
 function init(groupsMap) {

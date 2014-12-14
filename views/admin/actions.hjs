@@ -112,7 +112,7 @@
           {{#groups}}
           <div class="admin_item">
             <div class="admin_item_value" style="width: 250px">{{name}} ({{id}})<div class="command"><a href="javascript:promptEdit('/a/group/edit/name', 'new name', {id: '{{id}}'}, 'name')"><img width="20" src="/images/edit.png" /></a></div></div>
-            <div class="admin_item_value" style="width: 250px">{{tiebreaker_naut}}<div class="command"><a href="javascript:promptEditGroupTiebreakerNaut('{{id}}')"><img width="20" src="/images/edit.png" /></a></div></div>
+            <div class="admin_item_value" style="width: 250px">{{tiebreaker_naut}}<div class="command"><a href="javascript:promptEditGroupTiebreakerNaut('{{id}}', '{{tiebreaker_naut}}')"><img width="20" src="/images/edit.png" /></a></div></div>
             <div class="admin_item_commands"><a href="javascript:promptDelete('/a/group/delete', 'are you sure ?', {id: '{{id}}'})"><img width="20" src="/images/delete.png" /></a></div>
           </div>
           {{/groups}}

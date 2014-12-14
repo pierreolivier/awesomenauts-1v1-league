@@ -64,7 +64,7 @@
               {{#highlightsEnable}}
               <div class="container">
                 {{#highlights}}
-                <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> wins<br /><b>{{rounds}}</b> rounds</div></div>
+                <div class="line"><img class="border" src="{{image}}" /><div class="info2"><a href="/player?id={{id}}">{{name}}</a><br /><b>{{wins}}</b> rounds won<br /><b>{{rounds}}</b> rounds played</div></div>
                 {{/highlights}}
               </div>
               {{/highlightsEnable}}
